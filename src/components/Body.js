@@ -7,7 +7,7 @@ import RestaurantContainer from './RestaurantContainer'
 const Body = () => {
 
   return (
-    <div className='overflow-hidden'>
+    <div className='overflow-hidden py-12 px-40'>
         <Collection/>
         <TopRestaurant/>
         <RestaurantContainer/>

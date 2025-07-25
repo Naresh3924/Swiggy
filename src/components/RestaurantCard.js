@@ -5,9 +5,9 @@ const RestaurantCard = ({resInfo}) => {
 
   const { name, avgRating, cuisines, cloudinaryImageId } = resInfo.info;
   return (
-    <div className=' w-[250px] h-[300px] '>
+    <div className=' min-w-[150px] h-[300px] space-x-6 '>
       <img
-      className='w-[300px] h-[200px] rounded-lg'
+      className='w-[275px] h-[200px] rounded-lg'
       alt="res-info"
       src={RES_URL+cloudinaryImageId}
       />
