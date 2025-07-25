@@ -9,7 +9,7 @@ const CollectionMenu = () => {
     useCollectionMenudata(resId);
 
   return (
-    <div className="w-3/3 mx-36 py-4 px-2 my-2">
+    <div className="w-3/3  py-4 px-2 my-2">
       <h1 className="text-3xl font-bold">{collectioninfoheader?.title}</h1>
       <p className="">{collectioninfoheader?.description}</p>
       <select className="my-4 rounded-full  border shadow text-center py-2 bg-slate-50">

@@ -1,49 +1,48 @@
-import './App.css';
-import Header from './components/Header';
-import Body from './components/Body';
-import SidebarMenu from './components/SidebarMenu';
-import Sigin from './components/Authentication/Sigin';
-import CollectionMenu from './components/CollectionMenu';
-import { useSelector } from 'react-redux';
-import { createBrowserRouter, Outlet } from 'react-router-dom';
-import TopRestaurantMenu from './components/TopRestaurantMenu';
-import RestaurantMenu from './components/RestaurantMenu';
+import "./App.css";
+import Header from "./components/Header";
+import Body from "./components/Body";
+import SidebarMenu from "./components/SidebarMenu";
+import CollectionMenu from "./components/CollectionMenu";
+import { useSelector } from "react-redux";
+import { createBrowserRouter, Outlet } from "react-router-dom";
+import TopRestaurantMenu from "./components/TopRestaurantMenu";
+import RestaurantMenu from "./components/RestaurantMenu";
+import Footer from "./components/Footer";
 
 function App() {
   const toggelsidebar = useSelector((store) => store.sidebar.sidebar);
-  const toggelsigninbar = useSelector((store) => store.user.signinSidebar);
 
   return (
     <div>
       {toggelsidebar && <SidebarMenu />}
-      {toggelsigninbar && <Sigin />}
       <Header />
       <Outlet />
+      <Footer/>
     </div>
   );
 }
 
 export const AppRouder = createBrowserRouter([
   {
-    path: '/',
+    path: "/",
     element: <App />,
     children: [
       {
-        path: '/',
+        path: "/",
         element: <Body />,
       },
       {
-        path: '/collectionmenu/:resId',
+        path: "/collectionmenu/:resId",
         element: <CollectionMenu />,
       },
       {
-        path: '/toprestaurantMenu',
-        element:<TopRestaurantMenu/>
+        path: "/toprestaurantMenu",
+        element: <TopRestaurantMenu />,
       },
       {
-        path:'/restaurantmenu',
-        element:<RestaurantMenu/>
-      }
+        path: "/restaurantmenu",
+        element: <RestaurantMenu />,
+      },
     ],
   },
 ]);
