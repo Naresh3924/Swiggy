@@ -1,24 +1,21 @@
 import "./App.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import SidebarMenu from "./components/SidebarMenu";
 import CollectionMenu from "./components/CollectionMenu";
-import { useSelector } from "react-redux";
 import { createBrowserRouter, Outlet } from "react-router-dom";
 import TopRestaurantMenu from "./components/TopRestaurantMenu";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Footer from "./components/Footer";
+import { Fragment } from "react/jsx-runtime";
 
 function App() {
-  const toggelsidebar = useSelector((store) => store.sidebar.sidebar);
 
   return (
-    <div>
-      {toggelsidebar && <SidebarMenu />}
+    <Fragment>
       <Header />
       <Outlet />
-      <Footer/>
-    </div>
+      <Footer />
+    </Fragment>
   );
 }
 
