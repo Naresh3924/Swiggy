@@ -1,4 +1,4 @@
-import React from "react";
+import React, { Fragment } from "react";
 import { LOGO_URL } from "../utils/content";
 import {
   ChevronDown,
@@ -13,13 +13,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { togglesidebar } from "../utils/sidebarSlice";
 import { togglesigninbar } from "../utils/userSlice";
 import Sigin from "./Authentication/Sigin";
+import SidebarMenu from "./SidebarMenu";
 
 const Header = () => {
   const dispatch = useDispatch();
   const toggelsigninbar = useSelector((store) => store.user.signinSidebar);
+  const toggelsidebar = useSelector((store) => store.sidebar.sidebar);
 
   return (
-    <div>
+    <Fragment>
       <div className="flex flex-wrap p-3 justify-center font-bold shadow items-center fixed bg-white  w-full">
         <img className="h-8" src={LOGO_URL} alt="logo" />
 
@@ -63,7 +65,8 @@ const Header = () => {
         </ul>
       </div>
       {toggelsigninbar && <Sigin />}
-    </div>
+      {toggelsidebar && <SidebarMenu />}
+    </Fragment>
   );
 };
 

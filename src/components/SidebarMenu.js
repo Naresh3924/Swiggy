@@ -27,7 +27,7 @@ const SidebarMenu = () => {
   }, [searchtext, dispatch]);
 
   return (
-    <div className="text-black absolute w-3/3 h-full font-bold text-lg bg-white">
+    <div className="modal shadow-xl rounded-lg">
       <AiOutlineClose
         className="w-10 h-10 py-2 my-2 mx-24 hover:cursor-pointer"
         onClick={() => dispatch(togglesidebar(true))}

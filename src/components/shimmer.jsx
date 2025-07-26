@@ -1,5 +1,4 @@
 /* eslint-disable import/no-anonymous-default-export */
-import React from "react";
 
 export default function () {
   return (
@@ -25,7 +24,7 @@ export default function () {
           </svg>
           <div>
             <div class="h-2.5 bg-gray-200 rounded-full dark:bg-gray-200 w-32 mb-2"></div>
-            <div class="w-48 h-2 bg-gray-200 rounded-full dark:bg-gray-200"></div>
+            <div class="w-44 h-2 bg-gray-200 rounded-full dark:bg-gray-200"></div>
           </div>
         </div>
         <span class="sr-only">Loading...</span>

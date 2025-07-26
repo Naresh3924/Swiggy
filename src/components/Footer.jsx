@@ -3,8 +3,8 @@ import React from "react";
 
 const Footer = () => {
   return (
-    <div className="bg-slate-100  border">
-      <div className="flex justify-center border-b-2  py-5">
+    <div className="bg-white  border">
+      <div className="flex justify-center my-5">
         <h1 className="font-bold text-2xl  py-5 ">
           For better experience,download the Swiggy app now
         </h1>
