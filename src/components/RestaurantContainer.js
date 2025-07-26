@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from 'react';
 import RestaurantCard from "./RestaurantCard";
 import useRestaurantCollection from "../utils/useRestaurantCollection";
 import { Link } from "react-router-dom";
