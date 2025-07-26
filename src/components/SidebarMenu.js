@@ -27,40 +27,43 @@ const SidebarMenu = () => {
   }, [searchtext, dispatch]);
 
   return (
-    <div className="modal shadow-xl rounded-lg">
+    <div className="sideBarModal shadow-xl rounded-lg ">
       <AiOutlineClose
-        className="w-10 h-10 py-2 my-2 mx-24 hover:cursor-pointer"
+        className="w-10 h-10 py-2 my-2  hover:cursor-pointer"
         onClick={() => dispatch(togglesidebar(true))}
       />
-      <input
-        className="border shadow my-4 mx-24 w-72 h-12 p-2 m-2"
-        type="text"
-        placeholder="Search for area, street name"
-        onChange={(e) => setsearchtext(e.target.value)}
-      />
-      {updatedsearch.map((search) => (
-        <div
-          className="border-b-2 my-4 mx-24 w-96 text-xs font-normal flex flex-wrap"
-          key={search.place_id}
+      <div className="px-5 py-2">
+        <input
+          className="border shadow p-3 w-72"
+          type="text"
+          placeholder="Search for area, street name"
+          onChange={(e) => setsearchtext(e.target.value)}
+        />
+      </div>
+      <div className="px-5 py-2">
+        {updatedsearch.map((search) => (
+          <div
+            className="border-b-2 text-xs font-normal flex flex-wrap"
+            key={search.place_id}
+          >
+            <PiMapPin className="my-3" />
+            <h1 className="font-bold text-[17px] p-2">
+         {search.structured_formatting.main_text}
+            </h1>
+            <p className="flex p-2">
+              {search.structured_formatting.secondary_text}
+            </p>
+          </div>
+        ))}
+      </div>
+      <div className="px-5 py-2">
+        <button
+          className="border text-orange-500  hover:text-orange-600 p-3 w-72"
         >
-          <PiMapPin className="my-3" />
-          <h1 className="font-bold text-[17px] p-2">
-            {search.structured_formatting.main_text}
-          </h1>
-          <p className="flex p-2">
-            {search.structured_formatting.secondary_text}
-          </p>
-        </div>
-      ))}
-      <button className="border flex my-4 mx-24 w-72 h-16 p-2 m-2 hover:text-orange-600">
-        Get current location
-      </button>
-      <button className="border my-4 flex mx-24 w-72 h-28 p-2 m-2 hover:text-orange-600">
-        Addrees
-      </button>
-      <button className="border my-4 flex mx-24 w-72 h-44 p-2 m-4 hover:text-orange-600">
-        Recent Search
-      </button>
+          Get current location
+        </button>
+      </div>
+
     </div>
   );
 };
