@@ -19,21 +19,21 @@ const Searchcontainer = () => {
   }, []);
 
   return (
-    <div className="w-2/3 py-4 px-2  h-full m-auto  ">
+    <div className="px-56 py-16 ">
       <input
-        className="border shadow   h-12 p-2 m-2 my-24 w-full"
+        className="border shadow  p-3 m-2 w-full rounded-lg"
         type="text"
         placeholder="Search restaurant and food"
         value={SearchResInfo}
         onChange={(e) => handleSearchResInfo(e.target.value)}
       />
       {SearchResInfoUpdated?.map((search) => (
-        <div className="p-2 m-2 border  flex hover:cursor-pointer hover:bg-gray-200 items-center" key={search?.text}>
-            <img
+        <div className="p-3 m-3 border  flex hover:cursor-pointer hover:bg-gray-200 items-center" key={search?.text}>
+          <img
             className="h-14 rounded-lg"
             alt="search"
-            src={SEARCH_RES_URL+search.cloudinaryId}
-            />
+            src={SEARCH_RES_URL + search.cloudinaryId}
+          />
           <ul className="px-2 mx-2">
             <li className="font-bold">{search?.text}</li>
             <li className=" text-gray-500 ">{search?.type}</li>

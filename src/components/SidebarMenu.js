@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { togglesidebar } from "../utils/sidebarSlice";
-import { addSearchResult } from "../utils/searchSlice";
+import { togglesidebar } from "../redux/sidebarSlice";
+import { addSearchResult } from "../redux/searchSlice";
 import { Search_api } from "../utils/content";
 import { PiMapPin } from "react-icons/pi";
 import { AiOutlineClose } from "react-icons/ai";

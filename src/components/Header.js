@@ -10,11 +10,11 @@ import {
 
 import { BiSolidOffer } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import { togglesidebar } from "../utils/sidebarSlice";
-import { togglesigninbar } from "../utils/userSlice";
+import { togglesidebar } from "../redux/sidebarSlice";
+import { togglesigninbar } from "../redux/userSlice";
 import Sigin from "./Authentication/Sigin";
 import SidebarMenu from "./SidebarMenu";
-import {Link} from "react-router-dom"
+import { Link } from "react-router-dom";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -24,8 +24,8 @@ const Header = () => {
   return (
     <Fragment>
       <div className="flex flex-wrap p-3 justify-center font-bold shadow items-center fixed bg-white  w-full">
-        <img className="h-8" src={LOGO_URL} alt="logo" />
-
+        <Link to="/">
+          <img className="h-8" src={LOGO_URL} alt="logo" /></Link>
         <button className="flex mx-2 font-normal">
           <p
             className="font-bold mx-2 border-b-2 border-black hover:text-orange-700"
