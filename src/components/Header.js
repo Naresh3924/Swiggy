@@ -14,6 +14,7 @@ import { togglesidebar } from "../utils/sidebarSlice";
 import { togglesigninbar } from "../utils/userSlice";
 import Sigin from "./Authentication/Sigin";
 import SidebarMenu from "./SidebarMenu";
+import {Link} from "react-router-dom"
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -38,9 +39,9 @@ const Header = () => {
         </button>
         <ul className="flex mx-2">
           <li className="mx-4">Swiggy Corporate</li>
-          <li className="mx-4 flex  ">
+          <Link to="/search"><li className="mx-4 flex hover:text-orange-700 hover:cursor-pointer ">
             <Search className=" mx-2 " /> Search
-          </li>
+          </li></Link>
           <li className="mx-4 flex ">
             <BiSolidOffer className="mx-2 my-1 " /> Offers{" "}
             <span className="text-[10px] text-orange-500 font-bold ml-1 -my-2">

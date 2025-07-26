@@ -7,6 +7,7 @@ import TopRestaurantMenu from "./components/TopRestaurantMenu";
 import RestaurantMenu from "./components/RestaurantMenu";
 import Footer from "./components/Footer";
 import { Fragment } from "react/jsx-runtime";
+import Searchcontainer from "./components/Searchcontainer";
 
 function App() {
 
@@ -40,6 +41,10 @@ export const AppRouder = createBrowserRouter([
         path: "/restaurantmenu",
         element: <RestaurantMenu />,
       },
+      {
+        path:"/search",
+        element:<Searchcontainer/>
+      }
     ],
   },
 ]);
