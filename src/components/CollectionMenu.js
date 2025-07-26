@@ -9,8 +9,9 @@ const CollectionMenu = () => {
     useCollectionMenudata(resId);
 
   return (
-    <div className="w-3/3  py-4 px-2 my-2">
-      <h1 className="text-3xl font-bold">{collectioninfoheader?.title}</h1>
+    <div className=" flex overflow-hidden py-12 px-24 ">
+      <div className=" w-3/3 py-4 px-2 my-8  mx-auto">
+         <h1 className="text-3xl font-bold">{collectioninfoheader?.title}</h1>
       <p className="">{collectioninfoheader?.description}</p>
       <select className="my-4 rounded-full  border shadow text-center py-2 bg-slate-50">
         <option className="">Sort By</option>
@@ -20,15 +21,13 @@ const CollectionMenu = () => {
           </option >
         ))}
       </select>
-      <div className="flex flex-wrap justify-between p-2 m-2 ">
+      <div className="flex flex-wrap justify-between mx-2 ">
       {
         collectioncardinfo?.map(card=><div className=""><RestaurantCard key={card.card?.card?.info?.id} resInfo={card.card.card}/></div>)
 
       }
       </div>
-
-
-      <div className="flex flex-wrap gap-6"></div>
+      </div>
     </div>
   );
 };
