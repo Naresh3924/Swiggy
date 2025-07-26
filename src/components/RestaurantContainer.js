@@ -5,17 +5,16 @@ import { Link } from "react-router-dom";
 import Shimmer from "./shimmer";
 
 const RestaurantContainer = () => {
-  const [shimmer, setShimmer] = useState([
+  const shimmer = [
     { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-    { id: 1 },
-  ]);
+    { id: 2 },
+    { id: 3 },
+    { id: 4 },
+    { id: 5 },
+    { id: 6 },
+    { id: 7 },
+    { id: 8 },
+  ];
   const { RestaurantInfo, RestaurantInfoHeader } = useRestaurantCollection();
   return (
     <>
@@ -32,7 +31,7 @@ const RestaurantContainer = () => {
           {RestaurantInfoHeader.title}
         </h1>
         <Link to="/restaurantmenu">
-          <div className="flex flex-wrap justify-between mx-2 ">
+          <div className="flex flex-wrap justify-between mx-2  ">
             {RestaurantInfo.map((item) => (
               <RestaurantCard key={item.info.id} resInfo={item} />
             ))}

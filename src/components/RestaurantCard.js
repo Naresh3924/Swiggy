@@ -5,7 +5,7 @@ const RestaurantCard = ({resInfo}) => {
 
   const { name, avgRating, cuisines, cloudinaryImageId } = resInfo.info;
   return (
-    <div className=' min-w-[150px] h-[300px] space-x-6 '>
+    <div className=' min-w-[150px] h-[300px]   '>
       <img
       className='w-[275px] h-[200px] rounded-lg'
       alt="res-info"
@@ -13,7 +13,7 @@ const RestaurantCard = ({resInfo}) => {
       />
       <h2 className="font-semibold">{name}</h2>
       <p>⭐ {avgRating}</p>
-      <p className="text-sm text-gray-500">{cuisines?.join(", ") }</p>
+      <p className="text-sm text-gray-500 w-[127px] truncate">{cuisines?.join(", ") }</p>
     </div>
   )
 }

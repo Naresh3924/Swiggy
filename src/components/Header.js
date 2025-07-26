@@ -28,9 +28,11 @@ const Header = () => {
             className="font-bold mx-2 border-b-2 border-black hover:text-orange-700"
             onClick={() => dispatch(togglesidebar())}
           >
-            Other
+            <div className="flex">
+              Other
+              <ChevronDown className="" />
+            </div>
           </p>
-          Koramangala, Bengaluru, Karnataka, India <ChevronDown className="" />
         </button>
         <ul className="flex mx-2">
           <li className="mx-4">Swiggy Corporate</li>
