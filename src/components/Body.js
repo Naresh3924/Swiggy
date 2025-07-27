@@ -1,19 +1,26 @@
-import React from 'react'
+import { useEffect } from 'react'
 import Collection from './Collection'
 import TopRestaurant from './TopRestaurant'
 import RestaurantContainer from './RestaurantContainer'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { RestaurantapiCall } from '../utils/util'
 
 
 const Body = () => {
-  const toggelsigninbar = useSelector((store) => store.user.signinSidebar);
-  const toggelsidebar = useSelector((store) => store.sidebar.sidebar);
+  const dispatch = useDispatch();
+  const restaurant = useSelector((store) => store?.restaurant?.data[0]);
+  console.log('restaurant', restaurant)
+
+  useEffect(() => {
+    RestaurantapiCall({ dispatch })
+  }, [])
+
 
   return (
     <div className={'overflow-hidden py-12 px-24 '}>
-      <Collection />
-      <TopRestaurant />
-      <RestaurantContainer />
+      <Collection restaurant={restaurant} />
+      <TopRestaurant restaurant={restaurant} />
+      <RestaurantContainer restaurant={restaurant} />
     </div>
   )
 }

@@ -1,9 +1,11 @@
 import RestaurantCard from "./RestaurantCard";
-import useRestaurantCollection from "../utils/useRestaurantCollection";
+// import useRestaurantCollection from "../utils/useRestaurantCollection";
 import { Link } from "react-router-dom";
 import Shimmer from "./shimmer";
 
-const RestaurantContainer = () => {
+const RestaurantContainer = ({ restaurant }) => {
+  const { restaurantInfoCard, restaurantInfoHeader
+  } = restaurant || {}
   const shimmer = [
     { id: 1 },
     { id: 2 },
@@ -14,25 +16,25 @@ const RestaurantContainer = () => {
     { id: 7 },
     { id: 8 },
   ];
-  const { RestaurantInfo, RestaurantInfoHeader } = useRestaurantCollection();
+  // const { RestaurantInfo, RestaurantInfoHeader } = useRestaurantCollection();
   return (
     <>
       <div className="flex flex-wrap justify-between">
-        {RestaurantInfo?.length === 0 &&
+        {restaurantInfoCard?.length === 0 &&
           shimmer?.map((i) => (
-            <div className="flex flex-wrap">
+            <div className="flex flex-wrap" key={i.id}>
               <Shimmer i={i.id} />
             </div>
           ))}
       </div>
       <div className="w-3/3  ">
         <h1 className="font-bold text-2xl my-4">
-          {RestaurantInfoHeader.title}
+          {restaurantInfoHeader?.title}
         </h1>
         <Link to="/restaurantmenu">
           <div className="flex flex-wrap justify-between mx-2  ">
-            {RestaurantInfo.map((item) => (
-              <RestaurantCard key={item.info.id} resInfo={item} />
+            {restaurantInfoCard?.map((item) => (
+              <RestaurantCard key={item?.info?.id} resInfo={item} />
             ))}
           </div>
         </Link>

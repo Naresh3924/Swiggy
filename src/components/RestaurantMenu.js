@@ -1,4 +1,3 @@
-import React from 'react';
 import useRestaurantMenu from '../utils/useRestaurantMenu';
 import TopRestaurantMenu from './TopRestaurantMenu';
 

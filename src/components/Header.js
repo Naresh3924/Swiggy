@@ -26,10 +26,10 @@ const Header = () => {
       <div className="flex flex-wrap p-3 justify-center font-bold shadow items-center fixed bg-white  w-full">
         <Link to="/">
           <img className="h-8" src={LOGO_URL} alt="logo" /></Link>
-        <button className="flex mx-2 font-normal">
+        <button className="flex mx-2 font-normal" onClick={() => dispatch(togglesidebar())}
+        >
           <p
             className="font-bold mx-2 border-b-2 border-black hover:text-orange-700"
-            onClick={() => dispatch(togglesidebar())}
           >
             <div className="flex">
               Other
