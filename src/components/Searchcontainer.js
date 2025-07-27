@@ -1,5 +1,5 @@
-import React, { useEffect, useState } from "react";
-import { SEARCH_RES_API, SEARCH_RES_URL } from "../utils/content";
+import { useEffect, useState } from "react";
+import { SEARCH_RES_API, SEARCH_RES_URL } from "../utils/constant";
 
 const Searchcontainer = () => {
   const [SearchResInfo, setSearchResInfo] = useState();
@@ -7,10 +7,8 @@ const Searchcontainer = () => {
 
   const handleSearchResInfo = async (value) => {
     setSearchResInfo(value);
-
     const data = await fetch(SEARCH_RES_API + value);
     const json = await data.json();
-    console.log(json.data);
     setSearchResInfoUpdated(json.data?.suggestions);
   };
 
@@ -28,7 +26,10 @@ const Searchcontainer = () => {
         onChange={(e) => handleSearchResInfo(e.target.value)}
       />
       {SearchResInfoUpdated?.map((search) => (
-        <div className="p-3 m-3 border  flex hover:cursor-pointer hover:bg-gray-200 items-center" key={search?.text}>
+        <div
+          className="p-3 m-3 border  flex hover:cursor-pointer hover:bg-gray-200 items-center"
+          key={search?.text}
+        >
           <img
             className="h-14 rounded-lg"
             alt="search"
