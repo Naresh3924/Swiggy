@@ -10,9 +10,7 @@ import appStore from './redux/appStore';
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <Provider store={appStore}>
-    <React.StrictMode>
       <RouterProvider router={AppRouder} />
-    </React.StrictMode>
   </Provider>
 );
 
