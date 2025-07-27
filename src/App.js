@@ -1,16 +1,13 @@
 import "./App.css";
 import Header from "./components/Header";
 import Body from "./components/Body";
-import CollectionMenu from "./components/CollectionMenu";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import TopRestaurantMenu from "./components/TopRestaurantMenu";
-import RestaurantMenu from "./components/RestaurantMenu";
 import Footer from "./components/Footer";
 import { Fragment } from "react/jsx-runtime";
 import Searchcontainer from "./components/Searchcontainer";
+import RestaurantDetail from "./components/RestaurantDetail";
 
-function App() {
-
+const App = () => {
   return (
     <Fragment>
       <Header />
@@ -18,7 +15,7 @@ function App() {
       <Footer />
     </Fragment>
   );
-}
+};
 
 export const AppRouder = createBrowserRouter([
   {
@@ -30,21 +27,13 @@ export const AppRouder = createBrowserRouter([
         element: <Body />,
       },
       {
-        path: "/collectionmenu/:resId",
-        element: <CollectionMenu />,
+        path: "/restaurantdetail/:resId",
+        element: <RestaurantDetail />,
       },
       {
-        path: "/toprestaurantMenu",
-        element: <TopRestaurantMenu />,
+        path: "/search",
+        element: <Searchcontainer />,
       },
-      {
-        path: "/restaurantmenu",
-        element: <RestaurantMenu />,
-      },
-      {
-        path:"/search",
-        element:<Searchcontainer/>
-      }
     ],
   },
 ]);

@@ -1,15 +1,14 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
-import { togglesidebar } from "../redux/sidebarSlice";
-import { addSearchResult } from "../redux/searchSlice";
-import { Search_api } from "../utils/content";
 import { PiMapPin } from "react-icons/pi";
 import { AiOutlineClose } from "react-icons/ai";
+import { addSearchResult } from "../redux/slice/searchSlice";
+import { togglesidebar } from "../redux/slice/sidebarSlice";
+import { Search_api } from "../utils/constant";
 
 const SidebarMenu = () => {
   const [searchtext, setsearchtext] = useState("");
   const [updatedsearch, setupdatedsearch] = useState([]);
-
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -17,11 +16,9 @@ const SidebarMenu = () => {
       const i = setTimeout(async () => {
         const data = await fetch(Search_api + searchtext);
         const json = await data.json();
-        console.log(json);
         setupdatedsearch(json.data);
         dispatch(addSearchResult(json.data));
       }, 1000);
-
       return () => clearTimeout(i);
     }
   }, [searchtext, dispatch]);
@@ -48,7 +45,7 @@ const SidebarMenu = () => {
           >
             <PiMapPin className="my-3" />
             <h1 className="font-bold text-[17px] p-2">
-         {search.structured_formatting.main_text}
+              {search.structured_formatting.main_text}
             </h1>
             <p className="flex p-2">
               {search.structured_formatting.secondary_text}
@@ -57,13 +54,10 @@ const SidebarMenu = () => {
         ))}
       </div>
       <div className="px-5 py-2">
-        <button
-          className="border text-orange-500  hover:text-orange-600 p-3 w-72"
-        >
+        <button className="border text-orange-500  hover:text-orange-600 p-3 w-72">
           Get current location
         </button>
       </div>
-
     </div>
   );
 };

@@ -1,5 +1,5 @@
 import React from 'react'
-import { RES_URL } from '../utils/content'
+import { RES_URL } from '../utils/constant';
 
 const ItemsCollection = ({collectionInfo}) => {
   const{imageId}=collectionInfo;

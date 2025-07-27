@@ -6,24 +6,24 @@ import { Link } from "react-router-dom";
 
 const TopRestaurantMenu = ({ resmenu }) => {
   const [offers, setOffers] = useState([]);
-  const [search,setsearch]=useState("");
-  const [searchupdate,setsearchupdate]=useState([]);
+  const [search, setsearch] = useState("");
+  const [searchupdate, setsearchupdate] = useState([]);
 
   const heading = resmenu?.cards?.[0]?.card?.card?.text;
   const info = resmenu?.cards?.[2]?.card?.card?.info;
 
-  const handlesearch= async(value)=>{
-    setsearch(value)
-    if(!value){
-      setsearchupdate([])
+  const handlesearch = async (value) => {
+    setsearch(value);
+    if (!value) {
+      setsearchupdate([]);
     }
-
-      const data=await fetch("https://www.swiggy.com/dapi/menu/pl/search?lat=13.08950&lng=80.27390&restaurantId=708880&isMenuUx4=true&query="+value)
-      const json=await data.json()
-
-      setsearchupdate(json)
-      console.log(json)
-  }
+    const data = await fetch(
+      "https://www.swiggy.com/dapi/menu/pl/search?lat=13.08950&lng=80.27390&restaurantId=708880&isMenuUx4=true&query=" +
+        value
+    );
+    const json = await data.json();
+    setsearchupdate(json);
+  };
 
   useEffect(() => {
     const offerList =
@@ -32,7 +32,6 @@ const TopRestaurantMenu = ({ resmenu }) => {
       setOffers(offerList);
     }
   }, [resmenu]);
-
 
   return (
     <div className="m-w-[200px] mx-[300px] py-4 px-2 space-y-6">
@@ -69,7 +68,7 @@ const TopRestaurantMenu = ({ resmenu }) => {
       <div className="flex overflow-x-auto scrollbar-hide space-x-6">
         {offers.length > 0 ? (
           offers.map((offer) => (
-            <div className="  " key={offer.info?.header} >
+            <div className="  " key={offer.info?.header}>
               <OfferComponent offer={offer.info} />
             </div>
           ))
@@ -85,7 +84,7 @@ const TopRestaurantMenu = ({ resmenu }) => {
           type="text"
           placeholder="Search for dishes"
           value={search}
-          onChange={(e)=>handlesearch(e.target.value)}
+          onChange={(e) => handlesearch(e.target.value)}
         />
         <div>{searchupdate}</div>
       </div>

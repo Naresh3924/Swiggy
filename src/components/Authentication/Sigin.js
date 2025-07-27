@@ -1,23 +1,18 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { togglesigninbar } from "../../redux/userSlice";
+import { togglesigninbar } from "../../redux/slice/userSlice";
 
 const Sigin = () => {
   const [phone, setphone] = useState();
   const dispatch = useDispatch();
-
   const handleLogin = (e) => {
     e.preventDefault();
-    console.log(phone);
   };
 
   return (
     <div>
-      <form
-        className="modal shadow-xl rounded-lg"
-        onSubmit={handleLogin}
-      >
+      <form className="modal shadow-xl rounded-lg" onSubmit={handleLogin}>
         <AiOutlineClose
           className="w-10 h-10 py-2 my-2 hover:cursor-pointer"
           onClick={() => dispatch(togglesigninbar(true))}
