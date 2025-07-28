@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import OfferComponent from "./OfferComponent";
 import TopResAccordion from "./TopResAccordion";
 import { Link, useParams } from "react-router-dom";
-import { RestaurantDetailapiCall } from "../utils/util";
+import { RestaurantDetailapiCall } from "../../utils/util";
 import { useDispatch, useSelector } from "react-redux";
 
 const RestaurantDetail = () => {
@@ -16,10 +16,10 @@ const RestaurantDetail = () => {
   );
   const { restaurantInfo, offersList, recomendedList } =
     RestaurantDetailInfo || {};
-
+console.log('RestaurantDetailInfo', RestaurantDetailInfo)
   useEffect(() => {
     if (resId) {
-      RestaurantDetailapiCall({ resId, dispatch });
+       RestaurantDetailapiCall({ resId, dispatch });
     }
   }, []);
 
@@ -77,7 +77,7 @@ const RestaurantDetail = () => {
         <div>
           {restaurantInfo?.labels?.map((i) => (
             <div className="flex" key={i?.title}>
-              <div className="font-bold">{i?.title}</div>
+              <div className="font-bold">{i?.title} :</div>
               <div className="mx-2 font-semibold text-gray-600">
                 {i?.message}
               </div>
@@ -124,7 +124,7 @@ const RestaurantDetail = () => {
 
       <div>
         <h1 className="font-bold text-xl">
-          {recomendedList?.title} {recomendedList?.itemCards?.length}){" "}
+          {recomendedList?.title} ({recomendedList?.itemCards?.length}){" "}
         </h1>
         <TopResAccordion recomendedList={recomendedList} />
       </div>

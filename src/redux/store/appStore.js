@@ -5,10 +5,12 @@ import userReducer from "../slice/userSlice";
 import {
   restaurantReducer,
   restaurantDeatilReducer,
+  loadingReducer,
 } from "../slice/restaurantSlice";
 
 const appStore = configureStore({
   reducer: {
+    isLoading: loadingReducer,
     sidebar: sidebarReducer,
     search: searchReducer,
     user: userReducer,

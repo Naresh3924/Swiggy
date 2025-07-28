@@ -1,11 +1,11 @@
 import "./App.css";
-import Header from "./components/Header";
-import Body from "./components/Body";
+import Header from "./components/header/Header";
+import Body from "./pages/Body";
 import { createBrowserRouter, Outlet } from "react-router-dom";
-import Footer from "./components/Footer";
+import Footer from "./components/footer/Footer";
 import { Fragment } from "react/jsx-runtime";
-import Searchcontainer from "./components/Searchcontainer";
-import RestaurantDetail from "./components/RestaurantDetail";
+import Searchcontainer from "./components/searchContainer/Searchcontainer";
+import RestaurantDetail from "./components/restauranDetails/RestaurantDetail";
 
 const App = () => {
   return (
@@ -30,6 +30,7 @@ export const AppRouder = createBrowserRouter([
         path: "/restaurantdetail/:resId",
         element: <RestaurantDetail />,
       },
+
       {
         path: "/search",
         element: <Searchcontainer />,

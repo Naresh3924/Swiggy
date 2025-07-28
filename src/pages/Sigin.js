@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
-import { togglesigninbar } from "../../redux/slice/userSlice";
+import { togglesigninbar } from "../redux/slice/userSlice";
 
 const Sigin = () => {
   const [phone, setphone] = useState();

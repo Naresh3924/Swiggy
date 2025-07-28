@@ -1,29 +1,13 @@
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
-import Shimmer from "./shimmer";
+
+import { Fragment } from "react/jsx-runtime";
 
 const RestaurantContainer = ({ restaurant }) => {
   const { restaurantInfoCard, restaurantInfoHeader } = restaurant || {};
-  const shimmer = [
-    { id: 1 },
-    { id: 2 },
-    { id: 3 },
-    { id: 4 },
-    { id: 5 },
-    { id: 6 },
-    { id: 7 },
-    { id: 8 },
-  ];
+
   return (
-    <>
-      <div className="flex flex-wrap ">
-        {restaurantInfoCard?.length === 0 &&
-          shimmer?.map((i) => (
-            <div className="flex flex-wrap" key={i.id}>
-              <Shimmer i={i.id} />
-            </div>
-          ))}
-      </div>
+    <Fragment>
       <div className="w-3/3  ">
         <h1 className="font-bold text-2xl my-4">
           {restaurantInfoHeader?.title}
@@ -39,7 +23,7 @@ const RestaurantContainer = ({ restaurant }) => {
           ))}
         </div>
       </div>
-    </>
+    </Fragment>
   );
 };
 

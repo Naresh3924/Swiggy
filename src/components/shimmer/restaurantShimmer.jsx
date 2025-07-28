@@ -1,11 +1,10 @@
 /* eslint-disable import/no-anonymous-default-export */
-
-export default function () {
+const RestaurantShimmer = () => {
   return (
     <div>
       <div
         role="status"
-        className="max-w-sm p-4 border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-6 dark:border-gray-200"
+        className="border border-gray-200 rounded-sm shadow-sm animate-pulse md:p-8 dark:border-gray-200"
       >
         <div className="flex items-center justify-center h-48 mb-4 bg-gray-300 rounded-sm dark:bg-gray-200"></div>
         <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-200 w-48 mb-4"></div>
@@ -14,7 +13,7 @@ export default function () {
         <div className="h-2 bg-gray-200 rounded-full dark:bg-gray-200"></div>
         <div className="flex items-center mt-4">
           <svg
-            className="w-10 h-10 me-3 text-gray-200 dark:text-gray-200"
+            className="w-10 h-10  text-gray-200 dark:text-gray-200"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="currentColor"
@@ -24,11 +23,13 @@ export default function () {
           </svg>
           <div>
             <div className="h-2.5 bg-gray-200 rounded-full dark:bg-gray-200 w-32 mb-2"></div>
-            <div className="w-44 h-2 bg-gray-200 rounded-full dark:bg-gray-200"></div>
+            <div className="w-40 h-2 bg-gray-200 rounded-full dark:bg-gray-200"></div>
           </div>
         </div>
         <span className="sr-only">Loading...</span>
       </div>
     </div>
   );
-}
+};
+
+export default RestaurantShimmer;
