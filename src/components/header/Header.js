@@ -8,12 +8,12 @@ import {
 } from "lucide-react";
 import { BiSolidOffer } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import Sigin from "./Authentication/Sigin";
-import SidebarMenu from "./SidebarMenu";
+import Sigin from "../../pages/Sigin";
+import SidebarMenu from "../sideBarMenu/SidebarMenu";
 import { Link } from "react-router-dom";
-import { togglesigninbar } from "../redux/slice/userSlice";
-import { togglesidebar } from "../redux/slice/sidebarSlice";
-import { LOGO_URL } from "../utils/constant";
+import { togglesigninbar } from "../../redux/slice/userSlice";
+import { togglesidebar } from "../../redux/slice/sidebarSlice";
+import { LOGO_URL } from "../../utils/constant";
 
 const Header = () => {
   const dispatch = useDispatch();

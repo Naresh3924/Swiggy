@@ -2,9 +2,9 @@ import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { PiMapPin } from "react-icons/pi";
 import { AiOutlineClose } from "react-icons/ai";
-import { addSearchResult } from "../redux/slice/searchSlice";
-import { togglesidebar } from "../redux/slice/sidebarSlice";
-import { Search_api } from "../utils/constant";
+import { addSearchResult } from "../../redux/slice/searchSlice";
+import { togglesidebar } from "../../redux/slice/sidebarSlice";
+import { Search_api } from "../../utils/constant";
 
 const SidebarMenu = () => {
   const [searchtext, setsearchtext] = useState("");

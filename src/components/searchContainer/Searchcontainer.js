@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { SEARCH_RES_API, SEARCH_RES_URL } from "../utils/constant";
+import { SEARCH_RES_API, SEARCH_RES_URL } from "../../utils/constant";
 
 const Searchcontainer = () => {
   const [SearchResInfo, setSearchResInfo] = useState();

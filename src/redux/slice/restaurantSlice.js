@@ -1,5 +1,19 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const loadingSlice = createSlice({
+  name: "Loading",
+  initialState: {
+    isLoading: false,
+  },
+  reducers: {
+    setIsLoading: (state, action) => {
+      state.isLoading = action.payload;
+    },
+  },
+});
+export const { setIsLoading } = loadingSlice.actions;
+export const loadingReducer = loadingSlice.reducer;
+
 const restaurantSlice = createSlice({
   name: "Restaurant",
   initialState: {

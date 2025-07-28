@@ -1,4 +1,5 @@
 import {
+  setIsLoading,
   updateRestaurant,
   updateRestaurantDetail,
 } from "../redux/slice/restaurantSlice";
@@ -9,8 +10,10 @@ import { RESTAURANTDETAILS_URL, RESTAURANTS_URL } from "./constant";
  * @param { dispatch} dispatch-default function dispatch the response to store
  */
 export const RestaurantapiCall = async ({ dispatch }) => {
+  dispatch(setIsLoading(true));
   const data = await fetch(RESTAURANTS_URL);
   const json = await data.json();
+  dispatch(setIsLoading(false));
   const updatePayload = {
     collectionCard:
       json.data?.cards[0]?.card?.card?.gridElements?.infoWithStyle?.info,
@@ -31,8 +34,10 @@ export const RestaurantapiCall = async ({ dispatch }) => {
  * @param { dispatch} dispatch-default function dispatch the response to store
  */
 export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
+  dispatch(setIsLoading(true));
   const data = await fetch(RESTAURANTDETAILS_URL(resId));
   const json = await data.json();
+  dispatch(setIsLoading(false));
   const payload = {
     restaurantDetailHeader: json.data?.cards[0]?.card?.card?.text,
     restaurantInfo: json.data.cards?.[2]?.card?.card?.info,

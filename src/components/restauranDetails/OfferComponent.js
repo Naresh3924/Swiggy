@@ -1,5 +1,4 @@
 const OfferComponent = ({ offer }) => {
-  console.log("offer", offer);
   return (
     <div className="flex border border-slate rounded-lg shadow-lg">
       <img
