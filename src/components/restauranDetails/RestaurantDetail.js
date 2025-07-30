@@ -5,12 +5,12 @@ import TopResAccordion from "./TopResAccordion";
 import { Link, useParams } from "react-router-dom";
 import { RestaurantDetailapiCall } from "../../utils/util";
 import { useDispatch, useSelector } from "react-redux";
-import { setIsLoading } from "../../redux/slice/restaurantSlice";
 
 const RestaurantDetail = () => {
   const { resId } = useParams();
   const [search, setsearch] = useState("");
   const [searchupdate, setsearchupdate] = useState([]);
+  console.log(searchupdate)
 
   const dispatch = useDispatch();
   const RestaurantDetailInfo = useSelector(
@@ -18,14 +18,14 @@ const RestaurantDetail = () => {
   );
   const { restaurantInfo, offersList, recomendedList } =
     RestaurantDetailInfo || {};
-// console.log('RestaurantDetailInfo', RestaurantDetailInfo)
+  // console.log('RestaurantDetailInfo', RestaurantDetailInfo)
   useEffect(() => {
     if (resId) {
       RestaurantDetailapiCall({ resId, dispatch })
       // const time = setIsLoading(()=> RestaurantDetailapiCall({ resId, dispatch }),100);
-    
 
-    // return ()=>clearInterval(time)
+
+      // return ()=>clearInterval(time)
     }
   }, [resId]);
 

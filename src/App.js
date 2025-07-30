@@ -8,8 +8,15 @@ import Searchcontainer from "./components/searchContainer/Searchcontainer";
 import RestaurantDetail from "./components/restauranDetails/RestaurantDetail";
 import CollectionDetail from "./components/collection/CollectionDetail";
 import Cart from "./components/cart/Cart";
+import { useEffect } from "react";
 
 const App = () => {
+  useEffect(() => {
+    fetch('/users')
+      .then((res) => res.json())
+      .then((data) => console.log(data))
+      .catch((error) => console.log("sorry smoething went wrong", error))
+  }, [])
   return (
     <Fragment>
       <Header />

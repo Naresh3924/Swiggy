@@ -1,13 +1,10 @@
-import React from "react";
-import { useDispatch } from "react-redux";
-import { removeCartItem, updateCartItem } from "../../redux/slice/restaurantSlice";
 
 const CategoriesCard = ({ itemCards }) => {
 
   console.log(itemCards)
 
   return (
-        <div>
+    <div>
       {itemCards?.map((item) => (
         <div
           className="flex justify-between border-b-2 my-12 py-5 "
@@ -32,8 +29,8 @@ const CategoriesCard = ({ itemCards }) => {
             <img
               className="rounded-xl w-[200px]"
               alt="acc"
-              src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/"+item?.card?.info?.imageId
-}
+              src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + item?.card?.info?.imageId
+              }
             />
             <div className="absolute text-center mx-10 -my-6">
               <button
