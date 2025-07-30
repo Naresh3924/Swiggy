@@ -1,5 +1,6 @@
 import {
   setIsLoading,
+  updateCollectionDetail,
   updateRestaurant,
   updateRestaurantDetail,
 } from "../redux/slice/restaurantSlice";
@@ -26,6 +27,8 @@ export const RestaurantapiCall = async ({ dispatch }) => {
     restaurantInfoHeader: json.data?.cards[2]?.card?.card,
   };
   dispatch(updateRestaurant(updatePayload));
+
+  // console.log(json)
 };
 
 /**
@@ -49,3 +52,16 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
   };
   dispatch(updateRestaurantDetail(payload));
 };
+
+
+export const CollectionDetailapiCall=async({resId,dispatch})=>{
+  const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&collection=83639&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null")
+
+  const json=await data.json()
+
+  // console.log(json)
+  // console.log(resId)
+
+  dispatch(updateCollectionDetail(json))
+
+}

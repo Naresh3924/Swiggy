@@ -1,24 +1,16 @@
-import { useDispatch, useSelector } from "react-redux";
-import { updateCart, updateCartItem } from "../../redux/slice/restaurantSlice";
-import { useEffect, useState } from "react";
+import React from "react";
+import { useDispatch } from "react-redux";
+import { removeCartItem, updateCartItem } from "../../redux/slice/restaurantSlice";
 
-const TopResAccordion = ({ recomendedList }) => {
+const CategoriesCard = ({ itemCards }) => {
 
-  const { itemCards } = recomendedList || {};
+  console.log(itemCards)
 
-  const itemcards = useSelector((store) => store?.cart?.items);
-
-  
-  const dispatch = useDispatch();
-
-  const handleAddItem = (item) => {
-    dispatch(updateCartItem(item));
-  };
   return (
-    <div>
+        <div>
       {itemCards?.map((item) => (
         <div
-          className="flex justify-between border-t-2 my-4 py-5 "
+          className="flex justify-between border-b-2 my-12 py-5 "
           key={item?.card?.info?.id}
         >
           <div className="px-2 w-2/3">
@@ -46,16 +38,14 @@ const TopResAccordion = ({ recomendedList }) => {
             <div className="absolute text-center mx-10 -my-6">
               <button
                 className="bg-white hover:bg-slate-100  border border-slate-300   px-10 py-2 rounded-xl font-extrabold text-green-600 "
-                onClick={() => handleAddItem(item)}
               >
-                ADD 
+                ADD
               </button>
             </div>
           </div>
         </div>
       ))}
     </div>
-  );
-};
-
-export default TopResAccordion;
+  )
+}
+export default CategoriesCard;
