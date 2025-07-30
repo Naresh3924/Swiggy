@@ -19,6 +19,7 @@ const Header = () => {
   const dispatch = useDispatch();
   const toggelsigninbar = useSelector((store) => store.user.signinSidebar);
   const toggelsidebar = useSelector((store) => store.sidebar.sidebar);
+  const itemCards = useSelector((store) => store?.cart?.items);
 
   return (
     <Fragment>
@@ -61,10 +62,12 @@ const Header = () => {
             <User className="mx-2" />
             User
           </li>
+          <Link to="/cart">
           <li className="mx-4 flex">
             <ShoppingCart className="mx-2" />
-            Cart
+            Cart <di className="bg-green-500 text-white px-2 mx-2 rounded-t-lg">{itemCards.length}</di> 
           </li>
+          </Link>
         </ul>
       </div>
       {toggelsigninbar && <Sigin />}

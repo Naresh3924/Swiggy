@@ -5,23 +5,29 @@ import TopResAccordion from "./TopResAccordion";
 import { Link, useParams } from "react-router-dom";
 import { RestaurantDetailapiCall } from "../../utils/util";
 import { useDispatch, useSelector } from "react-redux";
+import { setIsLoading } from "../../redux/slice/restaurantSlice";
 
 const RestaurantDetail = () => {
   const { resId } = useParams();
   const [search, setsearch] = useState("");
-  const [, setsearchupdate] = useState([]);
+  const [searchupdate, setsearchupdate] = useState([]);
+
   const dispatch = useDispatch();
   const RestaurantDetailInfo = useSelector(
     (store) => store?.restaurantDetail?.restaurantDetail[0]
   );
   const { restaurantInfo, offersList, recomendedList } =
     RestaurantDetailInfo || {};
-console.log('RestaurantDetailInfo', RestaurantDetailInfo)
+// console.log('RestaurantDetailInfo', RestaurantDetailInfo)
   useEffect(() => {
     if (resId) {
-       RestaurantDetailapiCall({ resId, dispatch });
+      RestaurantDetailapiCall({ resId, dispatch })
+      // const time = setIsLoading(()=> RestaurantDetailapiCall({ resId, dispatch }),100);
+    
+
+    // return ()=>clearInterval(time)
     }
-  }, []);
+  }, [resId]);
 
   const handlesearch = async (value) => {
     setsearch(value);
@@ -29,10 +35,12 @@ console.log('RestaurantDetailInfo', RestaurantDetailInfo)
       setsearchupdate([]);
     }
     const data = await fetch(
-      `https://www.swiggy.com/dapi/menu/pl/search?lat=21.99740&lng=79.00110&restaurantId=${resId}&isMenuUx4=true&query=${value}&submitAction=ENTER`
+      `https://www.swiggy.com/dapi/menu/pl/search?lat=21.99740&lng=79.00110&restaurantId=${resId}&isMenuUx4=true&query=${value}`
     );
     const json = await data.json();
     setsearchupdate(json);
+
+
   };
 
   return (
@@ -102,7 +110,7 @@ console.log('RestaurantDetailInfo', RestaurantDetailInfo)
           value={search}
           onChange={(e) => handlesearch(e.target.value)}
         />
-        {/* <div>{search.map(serach=><div><ul><li>{search}</li></ul></div>)}</div> */}
+
       </div>
 
       <div className="flex h-[30px] w-[100px]">
