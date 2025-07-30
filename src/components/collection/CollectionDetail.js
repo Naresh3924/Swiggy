@@ -1,15 +1,16 @@
-import React, { useEffect } from 'react';
+/* eslint-disable react-hooks/exhaustive-deps */
+import { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { CollectionDetailapiCall } from '../../utils/util';
 import { useParams } from 'react-router-dom';
 
-const CollectionDetail = () => { 
-   const dispatch = useDispatch();
-  const {resId}=useParams
-  
-    useEffect(() => {
-      CollectionDetailapiCall({ resId,dispatch });
-    }, [resId]);
+const CollectionDetail = () => {
+  const dispatch = useDispatch();
+  const { resId } = useParams
+
+  useEffect(() => {
+    CollectionDetailapiCall({ resId, dispatch });
+  }, [resId]);
 
   return (
     <div className="flex overflow-hidden py-12 px-24">
