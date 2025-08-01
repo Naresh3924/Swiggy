@@ -1,14 +1,13 @@
-import React, { Fragment } from "react";
+import { Fragment } from "react";
 import {
   ChevronDown,
   HelpCircle,
   Search,
-  ShoppingCart,
   User,
 } from "lucide-react";
 import { BiSolidOffer } from "react-icons/bi";
 import { useDispatch, useSelector } from "react-redux";
-import Sigin from "../../pages/Sigin";
+import Sigin from "../../pages/Signin";
 import SidebarMenu from "../sideBarMenu/SidebarMenu";
 import { Link } from "react-router-dom";
 import { togglesigninbar } from "../../redux/slice/userSlice";
@@ -23,8 +22,8 @@ const Header = () => {
 
   return (
     <Fragment>
-      <div className="flex flex-wrap p-3 justify-center font-bold shadow items-center fixed bg-white  w-full">
-        <Link to="/">
+     <div className="flex flex-wrap p-3 justify-center font-bold shadow items-center fixed bg-white  w-full">
+        <Link to="/" data-testid="restaurantMenu">
           <img className="h-8" src={LOGO_URL} alt="logo" />
         </Link>
         <button
@@ -40,7 +39,7 @@ const Header = () => {
         </button>
         <ul className="flex mx-2">
           <li className="mx-4">Swiggy Corporate</li>
-          <Link to="/search">
+          <Link to="/search"  data-testid="searchMenu">
             <li className="mx-4 flex hover:text-orange-700 hover:cursor-pointer ">
               <Search className=" mx-2 " /> Search
             </li>
@@ -62,14 +61,16 @@ const Header = () => {
             <User className="mx-2" />
             User
           </li>
-          <Link to="/cart">
+          <Link to="/cart" data-testid="cartDetails">
           <li className="mx-4 flex">
-            <ShoppingCart className="mx-2" />
-            Cart <di className="bg-green-500 text-white px-2 mx-2 rounded-t-lg">{itemCards.length}</di> 
+            {/* <ShoppingCart className="mx-2" /> */}
+            {itemCards.length?<p className="bg-green-500 text-white px-2 mx-2 rounded-t-lg">{itemCards.length}</p>: <p className="bg-green-500 text-white px-2 mx-2 rounded-t-lg">{itemCards.length}</p>}
+            Cart 
           </li>
           </Link>
         </ul>
       </div>
+  
       {toggelsigninbar && <Sigin />}
       {toggelsidebar && <SidebarMenu />}
     </Fragment>

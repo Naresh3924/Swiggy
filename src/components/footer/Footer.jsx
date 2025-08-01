@@ -6,14 +6,28 @@ const Footer = () => {
         <h1 className="font-bold text-2xl  py-5 ">
           For better experience,download the Swiggy app now
         </h1>
-        <div onClick={() => window.open('https://play.google.com/store/apps/details?id=in.swiggy.android&referrer=utm_source%3Dswiggy%26utm_medium%3Dheader&pli=1')}>
+        <div
+          data-testid="playstorelink"
+          onClick={() =>
+            window.open(
+              "https://play.google.com/store/apps/details?id=in.swiggy.android&referrer=utm_source%3Dswiggy%26utm_medium%3Dheader&pli=1"
+            )
+          }
+        >
           <img
             className="w-72 h-20 px-5"
             src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/play_store.png"
             alt="social"
           />
         </div>
-        <div onClick={() => window.open('https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920?referrer=utm_source%3Dswiggy%26utm_medium%3Dhomepage')}>
+        <div
+          data-testid="appstorelink"
+          onClick={() =>
+            window.open(
+              "https://apps.apple.com/in/app/swiggy-food-instamart-dineout/id989540920?referrer=utm_source%3Dswiggy%26utm_medium%3Dhomepage"
+            )
+          }
+        >
           <img
             className="w-60 h-20"
             src="https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto/portal/m/app_store.png"
@@ -23,17 +37,67 @@ const Footer = () => {
       </div>
       <div className="flex  justify-between py-5 mx-28">
         <div>
-          <img className="w-44" src="https://companieslogo.com/img/orig/SWIGGY.NS_BIG-f0e9f79a.png?t=1731987060" alt='swiggy-log' />
+          <img
+            className="w-44"
+            src="https://companieslogo.com/img/orig/SWIGGY.NS_BIG-f0e9f79a.png?t=1731987060"
+            alt="swiggy-log"
+          />
           <div className="text-slate-500 text-sm font-bold my-3">
             <p> @ 2025 Swiggy Limited</p>
           </div>
           <div className="my-2">
             <h1 className="font-bold text-1xl">Social Links</h1>
             <div className="flex my-5 justify-between">
-              <div onClick={() => window.open('https://www.facebook.com/swiggy.in/')}><img className="w-8" src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-HMj9JwubMnKgb_XIB58v1HqmgjjG1fH7Mg&s' alt='fb-icon' /></div>
-              <div onClick={() => window.open('https://www.instagram.com/swiggyindia/?hl=en')}><img className="w-8" src='https://cdn.pixabay.com/photo/2021/06/15/12/14/instagram-6338393_1280.png' alt="insta-icon" /></div>
-              <div onClick={() => window.open('https://x.com/Swiggy?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor')}><img className="w-8" src='https://cdn-icons-png.flaticon.com/128/3256/3256013.png' alt='twitter-icon' /></div>
-              <div onClick={() => window.open('https://in.pinterest.com/swiggyindia/')}><img className="w-8" src='https://cdn-icons-png.flaticon.com/128/3536/3536559.png' alt='pinterest-icon' /></div>
+              <div
+                data-testid="facebookicon"
+                onClick={() =>
+                  window.open("https://www.facebook.com/swiggy.in/")
+                }
+              >
+                <img
+                  className="w-8"
+                  src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR-HMj9JwubMnKgb_XIB58v1HqmgjjG1fH7Mg&s"
+                  alt="fb-icon"
+                />
+              </div>
+              <div
+                data-testid="instagramicon"
+                onClick={() =>
+                  window.open("https://www.instagram.com/swiggyindia/?hl=en")
+                }
+              >
+                <img
+                  className="w-8"
+                  src="https://cdn.pixabay.com/photo/2021/06/15/12/14/instagram-6338393_1280.png"
+                  alt="insta-icon"
+                />
+              </div>
+              <div
+                data-testid="twittericon"
+                onClick={() =>
+                  window.open(
+                    "https://x.com/Swiggy?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+                  )
+                }
+              >
+                <img
+                  className="w-8"
+                  src="https://cdn-icons-png.flaticon.com/128/3256/3256013.png"
+                  alt="twitter-icon"
+                />
+              </div>
+              <div
+                data-testid="pinteresticon"
+                onClick={() =>
+                  window.open("https://in.pinterest.com/swiggyindia/")
+                }
+              >
+                <img
+                  className="w-8"
+                  src="https://cdn-icons-png.flaticon.com/128/3536/3536559.png"
+                  alt="pinterest-icon"
+                />
+              </div>
             </div>
           </div>
         </div>

@@ -26,7 +26,7 @@ const App = () => {
   );
 };
 
-export const AppRouder = createBrowserRouter([
+export const AppRouter = createBrowserRouter([
   {
     path: "/",
     element: <App />,

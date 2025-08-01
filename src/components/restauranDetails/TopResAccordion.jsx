@@ -39,7 +39,7 @@ const TopResAccordion = ({ recomendedList }) => {
               src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + item?.card?.info?.imageId
               }
             />
-            <div className="absolute text-center mx-10 -my-6">
+            <div className=" text-center mx-10 -my-6">
               <button
                 className="bg-white hover:bg-slate-100  border border-slate-300   px-10 py-2 rounded-xl font-extrabold text-green-600 "
                 onClick={() => handleAddItem(item)}

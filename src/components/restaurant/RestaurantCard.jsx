@@ -2,7 +2,7 @@ import React from "react";
 import { RES_URL } from "../../utils/constant";
 
 const RestaurantCard = ({ resInfo }) => {
-  const { name, avgRating, cuisines, cloudinaryImageId } = resInfo.info;
+  const { name, avgRating, cuisines, cloudinaryImageId } = resInfo?.info || {};
   return (
     <div className=" w-64 h-80 space-x-6 shadow my-2 rounded-lg mx-1">
       <img
