@@ -1,5 +1,6 @@
 import React from "react";
 import { RES_URL } from "../../utils/constant";
+import PropTypes from "prop-types";
 
 const TopListRes = ({ topResInfo }) => {
   const { name, avgRating, cuisines, cloudinaryImageId } = topResInfo || {};
@@ -20,6 +21,10 @@ const TopListRes = ({ topResInfo }) => {
       </div>
     </div>
   );
+};
+
+TopListRes.propTypes = {
+  topResInfo: PropTypes.object,
 };
 
 export default TopListRes;

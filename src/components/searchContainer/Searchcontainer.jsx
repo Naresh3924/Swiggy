@@ -1,3 +1,4 @@
+import React from "react";
 import { useEffect, useState } from "react";
 import { SEARCH_RES_API, SEARCH_RES_URL } from "../../utils/constant";
 

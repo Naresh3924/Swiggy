@@ -1,5 +1,6 @@
+import React from "react";
 import { useSelector } from "react-redux";
-import CategoriesCard from "./CategoriesCard";
+import CategoriesCard from "./categoriesCard";
 
 const Cart = () => {
   const itemcards = useSelector((store) => store?.cart?.items);

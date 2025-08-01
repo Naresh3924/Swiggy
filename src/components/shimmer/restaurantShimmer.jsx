@@ -1,4 +1,4 @@
-/* eslint-disable import/no-anonymous-default-export */
+import React from "react";
 const RestaurantShimmer = () => {
   return (
     <div>
@@ -23,14 +23,12 @@ const RestaurantShimmer = () => {
             <div className="w-40 h-2 bg-gray-200 rounded-full dark:bg-gray-200"></div>
           </div>
         </div>
-
       </div>
     </div>
   );
 };
 
 export default RestaurantShimmer;
-
 
 //  <div className="p-2">
 //

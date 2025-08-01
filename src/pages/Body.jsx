@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
 import { Fragment, useEffect } from "react";
 import Collection from "../components/collection/Collection";
 import TopRestaurant from "../components/topRestaurant/TopRestaurant";

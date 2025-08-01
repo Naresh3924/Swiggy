@@ -1,5 +1,7 @@
+import React from "react";
 import TopListRes from "./TopListRes";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const TopRestaurant = ({ restaurant }) => {
   const { topRestaurantCard, topRestaurantHeader } = restaurant || {};
@@ -9,13 +11,21 @@ const TopRestaurant = ({ restaurant }) => {
       <h1 className="font-bold text-lg mb-2">{topRestaurantHeader?.title}</h1>
       <div className="flex border-b-2 overflow-x-auto space-x-6 scrollbar-hide px-2">
         {topRestaurantCard?.map((top) => (
-          <Link data-testid="restaurantDetails" to={`/restaurantdetail/${top?.info?.id}`} key={top.info?.id}>
+          <Link
+            data-testid="restaurantDetails"
+            to={`/restaurantdetail/${top?.info?.id}`}
+            key={top.info?.id}
+          >
             <TopListRes topResInfo={top.info} />
           </Link>
         ))}
       </div>
     </div>
   );
+};
+
+TopRestaurant.propTypes = {
+  restaurant: PropTypes.object,
 };
 
 export default TopRestaurant;

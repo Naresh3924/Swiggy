@@ -1,5 +1,6 @@
 import React from "react";
 import { RES_URL } from "../../utils/constant";
+import PropTypes from "prop-types";
 
 const RestaurantCard = ({ resInfo }) => {
   const { name, avgRating, cuisines, cloudinaryImageId } = resInfo?.info || {};
@@ -19,6 +20,10 @@ const RestaurantCard = ({ resInfo }) => {
       </div>
     </div>
   );
+};
+
+RestaurantCard.propTypes = {
+  resInfo: PropTypes,
 };
 
 export default RestaurantCard;
