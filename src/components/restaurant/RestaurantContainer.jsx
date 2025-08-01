@@ -12,9 +12,10 @@ const RestaurantContainer = ({ restaurant }) => {
         <h1 className="font-bold text-2xl my-4">
           {restaurantInfoHeader?.title}
         </h1>
-        <div className="flex flex-wrap  justify-between mx-1  ">
+        <div className="flex flex-wrap  mx-1  ">
           {restaurantInfoCard?.map((item) => (
             <Link
+            data-testid="restaurantDetails"
               key={item?.info?.id}
               to={`/restaurantdetail/${item?.info?.id}`}
             >

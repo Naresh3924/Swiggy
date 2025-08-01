@@ -8,9 +8,8 @@ import { RestaurantapiCall } from "../utils/util";
 import Shimmer from "../components/shimmer";
 
 const Body = () => {
-  const isLoading = useSelector((store) => store?.isLoading?.isLoading);
-
   const dispatch = useDispatch();
+  const isLoading = useSelector((store) => store?.isLoading?.isLoading);
   const restaurant = useSelector((store) => store?.restaurant?.restaurant[0]);
 
   useEffect(() => {

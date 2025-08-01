@@ -9,8 +9,7 @@ import { useDispatch, useSelector } from "react-redux";
 const RestaurantDetail = () => {
   const { resId } = useParams();
   const [search, setsearch] = useState("");
-  const [searchupdate, setsearchupdate] = useState([]);
-  console.log(searchupdate)
+  const [setsearchupdate] = useState([]);
 
   const dispatch = useDispatch();
   const RestaurantDetailInfo = useSelector(
@@ -18,14 +17,9 @@ const RestaurantDetail = () => {
   );
   const { restaurantInfo, offersList, recomendedList } =
     RestaurantDetailInfo || {};
-  // console.log('RestaurantDetailInfo', RestaurantDetailInfo)
   useEffect(() => {
     if (resId) {
-      RestaurantDetailapiCall({ resId, dispatch })
-      // const time = setIsLoading(()=> RestaurantDetailapiCall({ resId, dispatch }),100);
-
-
-      // return ()=>clearInterval(time)
+      RestaurantDetailapiCall({ resId, dispatch });
     }
   }, [resId]);
 
@@ -39,27 +33,37 @@ const RestaurantDetail = () => {
     );
     const json = await data.json();
     setsearchupdate(json);
-
-
   };
 
   return (
     <div className="m-w-[200px] mx-[300px] py-16 px-1 space-y-6">
       <ul className="flex text-sm text-center">
         <li className="px-1 ">
-          <Link to="/" className="px-1 hover:underline hover:text-orange-700">
+          <Link
+            data-testid="restaurantMenu"
+            to="/"
+            className="px-1 hover:underline hover:text-orange-700"
+          >
             Home
           </Link>
           /
         </li>
         <li className=" ">
-          <Link to="/" className="px-1 hover:underline hover:text-orange-700">
+          <Link
+            to="/"
+            data-testid="location"
+            className="px-1 hover:underline hover:text-orange-700"
+          >
             Location
           </Link>
           /
         </li>
         <li className=" ">
-          <Link to="/" className="px-1 hover:underline hover:text-orange-700">
+          <Link
+            to="/"
+            data-testid="foodName"
+            className="px-1 hover:underline hover:text-orange-700"
+          >
             Food name
           </Link>
         </li>
@@ -110,7 +114,6 @@ const RestaurantDetail = () => {
           value={search}
           onChange={(e) => handlesearch(e.target.value)}
         />
-
       </div>
 
       <div className="flex h-[30px] w-[100px]">
@@ -127,7 +130,7 @@ const RestaurantDetail = () => {
 
       {/* <div className="my-4">
         <h1 className="text-lg font-bold">Top Picks</h1>
-        <Toppickscard />
+        <TopPicksCard toppickscard={restaurantInfo} />
       </div> */}
 
       <div>

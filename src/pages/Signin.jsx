@@ -3,19 +3,25 @@ import { AiOutlineClose } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 import { togglesigninbar } from "../redux/slice/userSlice";
 
-const Sigin = () => {
+const Signin = () => {
   const [phone, setphone] = useState();
   const dispatch = useDispatch();
   const handleLogin = (e) => {
     e.preventDefault();
   };
 
+  const handleMobileNumber = (e) => setphone(e?.target?.value);
+  const handleToggle = () => {
+    dispatch(togglesigninbar(true));
+  };
+
   return (
     <div>
       <form className="modal shadow-xl rounded-lg" onSubmit={handleLogin}>
         <AiOutlineClose
+          data-testid="outlineclose"
           className="w-10 h-10 py-2 my-2 hover:cursor-pointer"
-          onClick={() => dispatch(togglesigninbar(true))}
+          onClick={handleToggle}
         />
         <img
           className="h-32 w-22 mx-auto "
@@ -28,30 +34,40 @@ const Sigin = () => {
         </button>
 
         <input
+          data-testid="phonenumber"
           className="flex border h-16 p-2 my-4 w-[400px] mx-auto"
           type="tel"
           placeholder="Phone number"
           value={phone}
-          onChange={(e) => setphone(e.target.value)}
+          onChange={handleMobileNumber}
           required
         />
 
         <button
+          data-testid="submit"
           type="submit"
           className="border bg-orange-600 text-white h-16 p-2 my-4 w-[400px] mx-auto"
+          onClick={() => {
+            console.log("CLICKED");
+          }}
         >
           LOGIN
         </button>
-
-        <p className="text-sm ">
-          By clicking on Login, I accept the{" "}
-          <button className="font-bold text-sm">
+        <div className="flex justify-center">
+          <p className="text-sm ">By clicking on Login, I accept the </p>
+          <button
+            data-testid="terms"
+            className="font-bold text-sm"
+            onClick={() => {
+              console.log("CLICKED");
+            }}
+          >
             Terms & Conditions & Privacy Policy
           </button>
-        </p>
+        </div>
       </form>
     </div>
   );
 };
 
-export default Sigin;
+export default Signin;

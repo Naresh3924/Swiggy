@@ -4,7 +4,11 @@ import {
   updateRestaurant,
   updateRestaurantDetail,
 } from "../redux/slice/restaurantSlice";
-import { RESTAURANTDETAILS_URL, RESTAURANTS_URL } from "./constant";
+import {
+  COLLECTION_DETAILS_URL,
+  RESTAURANTDETAILS_URL,
+  RESTAURANTS_URL,
+} from "./constant";
 
 /**
  * Restaurant API call
@@ -27,8 +31,6 @@ export const RestaurantapiCall = async ({ dispatch }) => {
     restaurantInfoHeader: json.data?.cards[2]?.card?.card,
   };
   dispatch(updateRestaurant(updatePayload));
-
-  // console.log(json)
 };
 
 /**
@@ -53,15 +55,13 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
   dispatch(updateRestaurantDetail(payload));
 };
 
-
-export const CollectionDetailapiCall=async({resId,dispatch})=>{
-  const data=await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&collection=83639&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null")
-
-  const json=await data.json()
-
-  // console.log(json)
-  // console.log(resId)
-
-  dispatch(updateCollectionDetail(json))
-
-}
+/**
+ * CollectionDetail API call
+ * @param {id} id to pass to the rest details from restCard
+ * @param { dispatch} dispatch-default function dispatch the response to store
+ */
+export const CollectionDetailapiCall = async ({ resId, dispatch }) => {
+  const data = await fetch(COLLECTION_DETAILS_URL);
+  const json = await data.json();
+  dispatch(updateCollectionDetail(json));
+};

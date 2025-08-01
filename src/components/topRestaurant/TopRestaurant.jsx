@@ -9,7 +9,7 @@ const TopRestaurant = ({ restaurant }) => {
       <h1 className="font-bold text-lg mb-2">{topRestaurantHeader?.title}</h1>
       <div className="flex border-b-2 overflow-x-auto space-x-6 scrollbar-hide px-2">
         {topRestaurantCard?.map((top) => (
-          <Link to={`/restaurantdetail/${top?.info?.id}`} key={top.info?.id}>
+          <Link data-testid="restaurantDetails" to={`/restaurantdetail/${top?.info?.id}`} key={top.info?.id}>
             <TopListRes topResInfo={top.info} />
           </Link>
         ))}
