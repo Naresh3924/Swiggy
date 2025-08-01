@@ -1,4 +1,4 @@
-/* eslint-disable react-hooks/exhaustive-deps */
+import React from "react";
 import { useState, useEffect } from "react";
 import OfferComponent from "./OfferComponent";
 import TopResAccordion from "./TopResAccordion";
@@ -17,6 +17,7 @@ const RestaurantDetail = () => {
   );
   const { restaurantInfo, offersList, recomendedList } =
     RestaurantDetailInfo || {};
+
   useEffect(() => {
     if (resId) {
       RestaurantDetailapiCall({ resId, dispatch });

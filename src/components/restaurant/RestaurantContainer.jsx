@@ -1,7 +1,9 @@
+import React from "react";
 import RestaurantCard from "./RestaurantCard";
 import { Link } from "react-router-dom";
 
 import { Fragment } from "react/jsx-runtime";
+import PropTypes from "prop-types";
 
 const RestaurantContainer = ({ restaurant }) => {
   const { restaurantInfoCard, restaurantInfoHeader } = restaurant || {};
@@ -15,7 +17,7 @@ const RestaurantContainer = ({ restaurant }) => {
         <div className="flex flex-wrap  mx-1  ">
           {restaurantInfoCard?.map((item) => (
             <Link
-            data-testid="restaurantDetails"
+              data-testid="restaurantDetails"
               key={item?.info?.id}
               to={`/restaurantdetail/${item?.info?.id}`}
             >
@@ -26,6 +28,10 @@ const RestaurantContainer = ({ restaurant }) => {
       </div>
     </Fragment>
   );
+};
+
+RestaurantContainer.propTypes = {
+  restaurant: PropTypes,
 };
 
 export default RestaurantContainer;

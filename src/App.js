@@ -1,3 +1,4 @@
+import React from "react";
 import "./App.css";
 import Header from "./components/header/Header";
 import Body from "./pages/Body";
@@ -11,12 +12,14 @@ import Cart from "./components/cart/Cart";
 import { useEffect } from "react";
 
 const App = () => {
+
   useEffect(() => {
-    fetch('/users')
+    fetch("/users")
       .then((res) => res.json())
       .then((data) => console.log(data))
-      .catch((error) => console.log("sorry smoething went wrong", error))
-  }, [])
+      .catch((error) => console.log("sorry smoething went wrong", error));
+  }, []);
+
   return (
     <Fragment>
       <Header />
@@ -38,9 +41,10 @@ export const AppRouter = createBrowserRouter([
       {
         path: "/restaurantdetail/:resId",
         element: <RestaurantDetail />,
-      },{
-        path:"/collectiondetail/:resId",
-        element:<CollectionDetail/>
+      },
+      {
+        path: "/collectiondetail/:resId",
+        element: <CollectionDetail />,
       },
 
       {
@@ -48,9 +52,9 @@ export const AppRouter = createBrowserRouter([
         element: <Searchcontainer />,
       },
       {
-        path:"/cart",
-        element:<Cart/>
-      }
+        path: "/cart",
+        element: <Cart />,
+      },
     ],
   },
 ]);

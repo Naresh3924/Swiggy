@@ -60,7 +60,7 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
  * @param {id} id to pass to the rest details from restCard
  * @param { dispatch} dispatch-default function dispatch the response to store
  */
-export const CollectionDetailapiCall = async ({ resId, dispatch }) => {
+export const CollectionDetailapiCall = async ({ dispatch }) => {
   const data = await fetch(COLLECTION_DETAILS_URL);
   const json = await data.json();
   dispatch(updateCollectionDetail(json));
