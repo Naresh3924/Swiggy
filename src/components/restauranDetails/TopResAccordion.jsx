@@ -1,8 +1,9 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { updateCartItem } from "../../redux/slice/restaurantSlice";
+import PropTypes from "prop-types";
 
 const TopResAccordion = ({ recomendedList }) => {
-
   const { itemCards } = recomendedList || {};
   const dispatch = useDispatch();
 
@@ -36,7 +37,9 @@ const TopResAccordion = ({ recomendedList }) => {
             <img
               className="rounded-xl w-[200px]"
               alt="acc"
-              src={"https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" + item?.card?.info?.imageId
+              src={
+                "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +
+                item?.card?.info?.imageId
               }
             />
             <div className=" text-center mx-10 -my-6">
@@ -52,6 +55,10 @@ const TopResAccordion = ({ recomendedList }) => {
       ))}
     </div>
   );
+};
+
+TopResAccordion.propTypes = {
+  recomendedList: PropTypes,
 };
 
 export default TopResAccordion;

@@ -1,5 +1,6 @@
 import React from "react";
 import { RES_URL } from "../../utils/constant";
+import PropTypes from "prop-types";
 
 const ItemsCollection = ({ collectionInfo }) => {
   const { imageId } = collectionInfo || {};
@@ -12,6 +13,10 @@ const ItemsCollection = ({ collectionInfo }) => {
       />
     </div>
   );
+};
+
+ItemsCollection.propTypes = {
+  collectionInfo: PropTypes,
 };
 
 export default ItemsCollection;

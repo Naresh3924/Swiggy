@@ -1,6 +1,8 @@
+import React from "react";
 import { useDispatch } from "react-redux";
 import { removeCartItem } from "../../redux/slice/restaurantSlice";
 import { Link } from "react-router-dom";
+import PropTypes from "prop-types";
 
 const CategoriesCard = ({ itemCards }) => {
   // console.log(itemCards)
@@ -76,5 +78,9 @@ const CategoriesCard = ({ itemCards }) => {
       )}
     </div>
   );
+};
+
+CategoriesCard.propTypes = {
+  itemCards: PropTypes,
 };
 export default CategoriesCard;
