@@ -37,5 +37,5 @@ describe("TestCase for Footer", () => {
     fireEvent.click(pinteresticon);
     expect(mockFunction).toHaveBeenCalledTimes(0);
   });
-  
+
 });
