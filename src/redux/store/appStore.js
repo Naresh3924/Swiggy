@@ -7,7 +7,7 @@ import {
   restaurantDeatilReducer,
   loadingReducer,
   CollectionDetailReducer,
-  CartReducer
+  CartReducer,
 } from "../slice/restaurantSlice";
 
 const appStore = configureStore({
@@ -18,8 +18,8 @@ const appStore = configureStore({
     user: userReducer,
     restaurant: restaurantReducer,
     restaurantDetail: restaurantDeatilReducer,
-    collectionDetal:CollectionDetailReducer,
-    cart:CartReducer
+    collectionDetal: CollectionDetailReducer,
+    cart: CartReducer,
   },
 });
 

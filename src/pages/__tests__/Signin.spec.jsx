@@ -10,17 +10,6 @@ jest.mock("react-redux", () => ({
 describe("Testcase for signIn Component", () => {
   const mockFunction = jest.fn();
 
-  //   it("should dispatch togglesigninbar(true) on AiOutlineClose click", () => {
-  //     const mockDispatch = jest.fn();
-  //     const useDispatch = jest.fn();
-  //     useDispatch.mockReturnValue(mockDispatch);
-  //     render(<Signin />);
-
-  //     const outlineClose = screen.getByTestId("outlineclose"); // ✅ make sure this exists
-  //     fireEvent.click(outlineClose);
-  //     expect(mockDispatch).toHaveBeenCalledTimes(0);
-  //   });
-
   test("testCase for input and button in signin component", () => {
     render(<Signin onClick={mockFunction} onChange={mockFunction} />);
 

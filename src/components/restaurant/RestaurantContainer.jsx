@@ -17,7 +17,6 @@ const RestaurantContainer = ({ restaurant }) => {
         <div className="flex flex-wrap  mx-1  ">
           {restaurantInfoCard?.map((item) => (
             <Link
-              data-testid="restaurantDetails"
               key={item?.info?.id}
               to={`/restaurantdetail/${item?.info?.id}`}
             >

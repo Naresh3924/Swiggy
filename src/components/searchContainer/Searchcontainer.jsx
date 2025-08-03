@@ -1,16 +1,16 @@
 import React from "react";
 import { useEffect, useState } from "react";
 import { SEARCH_RES_API, SEARCH_RES_URL } from "../../utils/constant";
+import axios from "axios";
 
 const Searchcontainer = () => {
   const [SearchResInfo, setSearchResInfo] = useState();
   const [SearchResInfoUpdated, setSearchResInfoUpdated] = useState([]);
 
-  const handleSearchResInfo = async (value) => {
-    setSearchResInfo(value);
-    const data = await fetch(SEARCH_RES_API + value);
-    const json = await data.json();
-    setSearchResInfoUpdated(json.data?.suggestions);
+  const handleSearchResInfo = async (e) => {
+    setSearchResInfo(e?.target?.value);
+    const res = await axios.get(SEARCH_RES_API + e?.target?.value);
+    setSearchResInfoUpdated(res?.data?.data?.suggestions);
   };
 
   useEffect(() => {
@@ -24,7 +24,7 @@ const Searchcontainer = () => {
         type="text"
         placeholder="Search restaurant and food"
         value={SearchResInfo}
-        onChange={(e) => handleSearchResInfo(e.target.value)}
+        onChange={handleSearchResInfo}
       />
       {SearchResInfoUpdated?.map((search) => (
         <div

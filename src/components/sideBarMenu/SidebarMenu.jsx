@@ -6,19 +6,22 @@ import { AiOutlineClose } from "react-icons/ai";
 import { addSearchResult } from "../../redux/slice/searchSlice";
 import { togglesidebar } from "../../redux/slice/sidebarSlice";
 import { Search_api } from "../../utils/constant";
+import axios from "axios";
 
 const SidebarMenu = () => {
   const [searchtext, setsearchtext] = useState("");
   const [updatedsearch, setupdatedsearch] = useState([]);
   const dispatch = useDispatch();
+  const handleSearchText = (e) => {
+    setsearchtext(e.target.value);
+  };
 
   useEffect(() => {
     if (searchtext.length > 0) {
       const i = setTimeout(async () => {
-        const data = await fetch(Search_api + searchtext);
-        const json = await data.json();
-        setupdatedsearch(json.data);
-        dispatch(addSearchResult(json.data));
+        const res = await axios.get(Search_api + searchtext);
+        setupdatedsearch(res?.data?.data);
+        dispatch(addSearchResult(res?.data.data));
       }, 1000);
       return () => clearTimeout(i);
     }
@@ -32,13 +35,14 @@ const SidebarMenu = () => {
       />
       <div className="px-5 py-2">
         <input
+          data-testid="searchtext"
           className="border shadow p-3 w-72"
           type="text"
           placeholder="Search for area, street name"
-          onChange={(e) => setsearchtext(e.target.value)}
+          onChange={handleSearchText}
         />
       </div>
-      <div className="px-5 py-2">
+      <div className="px-5 py-2" data-testid="searchdata">
         {updatedsearch.map((search) => (
           <div
             className="border-b-2 text-xs font-normal flex flex-wrap"

@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import TopResAccordion from "../TopResAccordion";
 
 jest.mock("react-redux", () => ({

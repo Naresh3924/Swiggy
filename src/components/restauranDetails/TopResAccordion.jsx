@@ -44,6 +44,7 @@ const TopResAccordion = ({ recomendedList }) => {
             />
             <div className=" text-center mx-10 -my-6">
               <button
+                data-testid="addcartbutton"
                 className="bg-white hover:bg-slate-100  border border-slate-300   px-10 py-2 rounded-xl font-extrabold text-green-600 "
                 onClick={() => handleAddItem(item)}
               >
