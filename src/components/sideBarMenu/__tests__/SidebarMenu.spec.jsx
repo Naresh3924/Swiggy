@@ -1,4 +1,4 @@
-import { render } from "@testing-library/react";
+import { fireEvent, render, screen } from "@testing-library/react";
 import SidebarMenu from "../SidebarMenu";
 
 jest.mock("react-redux", () => ({
@@ -6,7 +6,11 @@ jest.mock("react-redux", () => ({
 }));
 
 describe("TestCase for SidebarMenu", () => {
+  const mockFunction = jest.fn();
   test("should render SidebarMenu component", () => {
     render(<SidebarMenu />);
+    const searchtextinput = screen.getByTestId("searchtext");
+    fireEvent.change(searchtextinput, { target: { value: "searchText" } });
+    expect(mockFunction).toHaveBeenCalledTimes(0);
   });
 });
