@@ -5,7 +5,7 @@ import PropTypes from "prop-types";
 const RestaurantCard = ({ resInfo }) => {
   const { name, avgRating, cuisines, cloudinaryImageId } = resInfo?.info || {};
   return (
-    <div className=" w-64 h-80 space-x-6 shadow my-2 rounded-lg mx-1">
+    <div className=" w-64 h-80 space-x-6 cusomShadow my-2 rounded-lg mx-1">
       <img
         className="w-[275px] h-[200px]  rounded-lg"
         alt="res-info"

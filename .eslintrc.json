@@ -3,10 +3,7 @@
     "browser": true,
     "es2021": true
   },
-  "extends": [
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["eslint:recommended", "plugin:react/recommended"],
   "parserOptions": {
     "ecmaVersion": "latest",
     "sourceType": "module",
@@ -15,10 +12,10 @@
     }
   },
   "plugins": ["react"],
-  "ignorePatterns": ["**/*.spec.jsx"],  // 🚫 Ignore test files
+  "ignorePatterns": ["**/*.spec.jsx"], // 🚫 Ignore test files
   "rules": {
-    "no-console": "warn",    
-    "indent": ["error", 2],                     // Enforce 2-space indentation
+    "no-console": "warn",
+    "indent": ["error", 2], // Enforce 2-space indentation
     "no-multiple-empty-lines": ["error", { "max": 1 }],
     "no-trailing-spaces": "error",
     "eol-last": ["error", "always"]

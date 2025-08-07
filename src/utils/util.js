@@ -1,6 +1,7 @@
 import axios from "axios";
 import {
   setIsLoading,
+  updateCartCheckOut,
   updateCollectionDetail,
   updateRestaurant,
   updateRestaurantDetail,
@@ -19,7 +20,6 @@ export const RestaurantapiCall = async ({ dispatch }) => {
   try {
     dispatch(setIsLoading(true));
     const res = await axios.get(RESTAURANTS_URL);
-    console.log("res1", res);
     dispatch(setIsLoading(false));
     const updatePayload = {
       collectionCard:
@@ -50,7 +50,6 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
   try {
     dispatch(setIsLoading(true));
     const res = await axios.get(RESTAURANTDETAILS_URL(resId));
-    console.log("res2", res);
     dispatch(setIsLoading(false));
     const payload = {
       restaurantDetailHeader: res?.data?.data?.cards[0]?.card?.card?.text,
@@ -61,6 +60,9 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
       recomendedList:
         res?.data?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR
           ?.cards[1]?.card?.card,
+      toppickscard:
+        res?.data?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR
+          ?.cards[1]?.card?.card.carousel,
     };
     dispatch(updateRestaurantDetail(payload));
   } catch {
@@ -77,9 +79,18 @@ export const CollectionDetailapiCall = async ({ dispatch }) => {
   try {
     dispatch(setIsLoading(true));
     const res = await axios.get(COLLECTION_DETAILS_URL);
-    console.log("res3", res);
     dispatch(setIsLoading(false));
     dispatch(updateCollectionDetail(res?.data));
+  } catch {
+    console.log("API is not Callling...!");
+  }
+};
+
+export const cartCheckoutDetail = async ({ dispatch }) => {
+  try {
+    const res = await axios.get("https://www.swiggy.com/dapi/cart");
+    console.log("res==", res);
+    dispatch(updateCartCheckOut(res));
   } catch {
     console.log("API is not Callling...!");
   }
