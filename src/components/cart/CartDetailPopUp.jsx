@@ -6,7 +6,6 @@ import { RES_URL } from "../../utils/constant";
 import { updateToggleCart } from "../../redux/slice/restaurantSlice";
 
 const CartDetailPopUp = ({ itemCards }) => {
-  console.log("itemCards", itemCards);
   const dispatch = useDispatch();
   const RestaurantDetailInfo = useSelector(
     (store) => store?.restaurantDetail?.restaurantDetail[0]
