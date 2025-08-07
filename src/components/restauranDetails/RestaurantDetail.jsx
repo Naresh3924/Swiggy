@@ -5,6 +5,7 @@ import TopResAccordion from "./TopResAccordion";
 import { Link, useParams } from "react-router-dom";
 import { RestaurantDetailapiCall } from "../../utils/util";
 import { useDispatch, useSelector } from "react-redux";
+import TopPicksCard from "./TopPicksCard";
 
 const RestaurantDetail = () => {
   const { resId } = useParams();
@@ -15,8 +16,10 @@ const RestaurantDetail = () => {
   const RestaurantDetailInfo = useSelector(
     (store) => store?.restaurantDetail?.restaurantDetail[0]
   );
-  const { restaurantInfo, offersList, recomendedList } =
+  const { restaurantInfo, offersList, recomendedList, toppickscard } =
     RestaurantDetailInfo || {};
+
+  console.log("list=", toppickscard);
 
   useEffect(() => {
     if (resId) {
@@ -129,10 +132,10 @@ const RestaurantDetail = () => {
         </button>
       </div>
 
-      {/* <div className="my-4">
+      <div className="my-4">
         <h1 className="text-lg font-bold">Top Picks</h1>
-        <TopPicksCard toppickscard={restaurantInfo} />
-      </div> */}
+        <TopPicksCard toppickscardd={toppickscard} />
+      </div>
 
       <div>
         <h1 className="font-bold text-xl">

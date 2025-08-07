@@ -1,6 +1,7 @@
 import React, { Fragment, Suspense, useEffect } from "react";
 import "./App.css";
 import { createBrowserRouter, Outlet } from "react-router-dom";
+import CheckOut from "./components/checkout/CheckOut";
 
 const Header = React.lazy(() => import("./components/header/Header"));
 const Body = React.lazy(() => import("./pages/Body"));
@@ -15,7 +16,7 @@ const RestaurantContainer = React.lazy(() =>
 const CollectionDetail = React.lazy(() =>
   import("./components/collection/CollectionDetail")
 );
-const Cart = React.lazy(() => import("./components/cart/Cart"));
+// const Cart = React.lazy(() => import("./components/cart/Cart"));
 
 const App = () => {
   useEffect(() => {
@@ -78,10 +79,10 @@ export const AppRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/cart",
+        path: "/checkout",
         element: (
           <Suspense fallback={<div></div>}>
-            <Cart />
+            <CheckOut />
           </Suspense>
         ),
       },

@@ -1,16 +1,13 @@
 import React from "react";
 import { Fragment } from "react";
-import { RES_URL } from "../../utils/constant";
+// import { RES_URL } from "../../utils/constant";
 import PropTypes from "prop-types";
 
 const TopPicksCard = ({ toppickscard }) => {
+  console.log("recomantedlist", toppickscard);
   return (
     <Fragment>
-      {toppickscard?.map((item) => (
-        <div key={item?.id}>
-          <img alt="top-card" src={item?.imageId + RES_URL} />
-        </div>
-      ))}
+      <div>vusvcsbkcbslncl</div>
     </Fragment>
   );
 };

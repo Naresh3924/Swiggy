@@ -122,9 +122,7 @@ const Signin = () => {
           <button
             data-testid="terms"
             className="font-bold text-sm"
-            onClick={() => {
-              console.log("CLICKED");
-            }}
+            onClick={() => {}}
           >
             Terms & Conditions & Privacy Policy
           </button>

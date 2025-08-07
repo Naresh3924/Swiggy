@@ -27,7 +27,10 @@ const TopResAccordion = ({ recomendedList }) => {
             <h1 className="font-bold py-2">{item?.card?.info?.name}</h1>
             <div className="font-bold flex">
               <span>&#8377;</span>
-              <div className="px-1">{item?.card?.info?.price / 100}</div>
+              <div className="px-1">
+                {item?.card?.info?.price / 100 ||
+                  item?.card?.info?.defaultPrice / 100}
+              </div>
             </div>
             <div className="text-slate-600 font-semibold">
               {item?.card?.info?.description}
@@ -35,7 +38,7 @@ const TopResAccordion = ({ recomendedList }) => {
           </div>
           <div className="rounded-sm px-2">
             <img
-              className="rounded-xl w-[200px]"
+              className="rounded-xl w-44 h-32"
               alt="acc"
               src={
                 "https://media-assets.swiggy.com/swiggy/image/upload/fl_lossy,f_auto,q_auto,w_300,h_300,c_fit/" +

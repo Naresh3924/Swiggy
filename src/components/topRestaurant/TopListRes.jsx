@@ -6,7 +6,7 @@ const TopListRes = ({ topResInfo }) => {
   const { name, avgRating, cuisines, cloudinaryImageId } = topResInfo || {};
 
   return (
-    <div className="min-w-[200px] min-h-[260px] shadow my-2 rounded-lg">
+    <div className="min-w-[200px] min-h-[260px] cusomShadow my-2 rounded-lg">
       <img
         className="w-[200px] h-[150px] rounded-lg"
         src={RES_URL + cloudinaryImageId}

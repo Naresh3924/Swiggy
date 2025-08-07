@@ -2,7 +2,7 @@ export const RESTAURANTS_URL =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.27390&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING";
 
 export const RESTAURANTDETAILS_URL = (resId) => {
-  return `https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=21.99740&lng=79.00110&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`;
+  return ` https://www.swiggy.com/dapi/menu/pl?page-type=REGULAR_MENU&complete-menu=true&lat=13.1498143&lng=80.2892727&restaurantId=${resId}&catalog_qa=undefined&submitAction=ENTER`;
 };
 
 export const LOGO_URL =
@@ -25,3 +25,5 @@ export const SEARCH_RES_URL =
 
 export const COLLECTION_DETAILS_URL =
   "https://www.swiggy.com/dapi/restaurants/list/v5?lat=21.99740&lng=79.00110&collection=83639&tags=layout_CCS_Burger&sortBy=&filters=&type=rcv2&offset=0&page_type=null";
+
+export const CARTCHECKOUT_API = "https://www.swiggy.com/dapi/cart";

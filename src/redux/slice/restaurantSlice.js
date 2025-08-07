@@ -59,25 +59,13 @@ export const { updateCollectionDetail } = CollectionDetailSlice.actions;
 
 export const CollectionDetailReducer = CollectionDetailSlice.reducer;
 
-// const CartSlice = createSlice({
-//   name: "cart",
-//   initialState: {
-//     cart: [],
-//   },
-//   reducers: {
-//     updateCart: (state, action) => {
-//       state.cart.push(action.payload);
-//     },
-//   },
-// });
-
-// export const { updateCart } = CartSlice.actions;
-
-// export const CartReducer = CartSlice.reducer;
 const cartSlice = createSlice({
   name: "cart",
   initialState: {
     items: [],
+    istoggleCartDetails: false,
+    cartCheckOut: [],
+    value: [],
   },
   reducers: {
     updateCartItem: (state, action) => {
@@ -86,8 +74,27 @@ const cartSlice = createSlice({
     removeCartItem: (state, action) => {
       state.items.pop(action);
     },
+    updateToggleCart: (state, action) => {
+      state.istoggleCartDetails = action.payload;
+    },
+    updateCartCheckOut: (state, action) => {
+      state.cartCheckOut.push(action.payload);
+    },
+    Increment: (state) => {
+      state.value.pop();
+    },
+    Decrement: (state) => {
+      state.value.length = 0;
+    },
   },
 });
-export const { updateCartItem, removeCartItem, clearCartItem } =
-  cartSlice.actions;
+export const {
+  updateCartItem,
+  removeCartItem,
+  clearCartItem,
+  updateToggleCart,
+  updateCartCheckOut,
+  Increment,
+  Decrement,
+} = cartSlice.actions;
 export const CartReducer = cartSlice.reducer;
