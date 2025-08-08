@@ -91,7 +91,6 @@ const RestaurantDetail = ({ RestaurantDetailInfo }) => {
               {restaurantInfo?.totalRatingsString}
             </p>
             <p className="px-1 font-bold">
-              {" "}
               {restaurantInfo?.costForTwoMessage}
             </p>
           </div>
