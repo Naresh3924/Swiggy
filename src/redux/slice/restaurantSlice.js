@@ -66,6 +66,7 @@ const cartSlice = createSlice({
     istoggleCartDetails: false,
     cartCheckOut: [],
     value: [],
+    cartpopdetail: false,
   },
   reducers: {
     updateCartItem: (state, action) => {
@@ -94,6 +95,7 @@ export const {
   clearCartItem,
   updateToggleCart,
   updateCartCheckOut,
+  cartPopUpDetail,
   Increment,
   Decrement,
 } = cartSlice.actions;
