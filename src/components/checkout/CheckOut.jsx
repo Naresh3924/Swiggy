@@ -1,10 +1,10 @@
 import React from "react";
+import Adress from "./Adress";
 import Payment from "./Payment";
 import CartItem from "./CartItem";
 import Account from "./Account";
 import { useSelector } from "react-redux";
 import Emptycart from "./Emptycart";
-import Address from "./Address";
 
 const CheckOut = () => {
   const itemcards = useSelector((store) => store?.cart?.items);
@@ -15,7 +15,7 @@ const CheckOut = () => {
         <div className="flex justify-between ">
           <div className="w-full ">
             <Account />
-            <Address />
+            <Adress />
             <Payment />
           </div>
           <div className="w-1/2">

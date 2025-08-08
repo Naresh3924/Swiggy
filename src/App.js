@@ -27,7 +27,7 @@ const App = () => {
   }, []);
 
   return (
-    <Fragment className="overflow-hidden">
+    <Fragment>
       <Header />
       <Outlet />
       <Footer />
