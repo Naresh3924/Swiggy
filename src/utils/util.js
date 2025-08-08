@@ -64,6 +64,7 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
         res?.data?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR
           ?.cards[1]?.card?.card.carousel,
     };
+
     dispatch(updateRestaurantDetail(payload));
   } catch {
     console.log("API is not Callling...!");
