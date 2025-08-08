@@ -47,8 +47,8 @@ const CartItem = ({ itemcard }) => {
           {itemcard?.map((item) => (
             <>
               <div className="flex justify-between px-2 py-2">
-                <div className="text-sm font-bold w-40">
-                  {item.card?.info?.name.slice(0, 24)}
+                <div className="font-semibold">
+                  {item.card?.info?.name.slice(0, 20)}
                 </div>
                 <div className="flex border font-bold px-2 ">
                   <p

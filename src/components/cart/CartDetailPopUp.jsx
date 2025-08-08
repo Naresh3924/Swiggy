@@ -86,14 +86,14 @@ const CartDetailPopUp = ({ itemCards }) => {
               }, 0) / 100}
             </p>
           </div>
-          <Link
-            to="/checkout"
-            onClick={() => dispatch(updateToggleCart(false))}
-          >
-            <div className=" border-orange-600 bg-orange-600 text-white w-full  mx-auto p-2 m-2  my-2">
+          <div className=" border-orange-600 bg-orange-600 text-white w-full  mx-auto p-2 m-2  my-2">
+            <Link
+              to="/checkout"
+              onClick={() => dispatch(updateToggleCart(false))}
+            >
               <button className=" font-bold text-center">CHECKOUT</button>
-            </div>
-          </Link>
+            </Link>
+          </div>
         </div>
       )}
     </div>
