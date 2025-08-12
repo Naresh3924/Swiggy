@@ -50,6 +50,7 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
   try {
     dispatch(setIsLoading(true));
     const res = await axios.get(RESTAURANTDETAILS_URL(resId));
+    // console.log("res=", res);
     dispatch(setIsLoading(false));
     const payload = {
       restaurantDetailHeader: res?.data?.data?.cards[0]?.card?.card?.text,
@@ -63,6 +64,8 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
       toppickscard:
         res?.data?.data?.cards?.[4]?.groupedCard?.cardGroupMap?.REGULAR
           ?.cards[1]?.card?.card.carousel,
+      resAccordian:
+        res?.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR,
     };
     dispatch(updateRestaurantDetail(payload));
   } catch {

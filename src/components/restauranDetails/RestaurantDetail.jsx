@@ -11,7 +11,7 @@ const RestaurantDetail = ({ RestaurantDetailInfo }) => {
   const [search, setsearch] = useState("");
   const [setsearchupdate] = useState([]);
 
-  const { restaurantInfo, offersList, recomendedList } =
+  const { restaurantInfo, offersList, resAccordian } =
     RestaurantDetailInfo || {};
   const itemCard = useSelector((store) => store?.cart?.items);
 
@@ -27,6 +27,7 @@ const RestaurantDetail = ({ RestaurantDetailInfo }) => {
     setsearchupdate(json);
   };
 
+  // console.log("acc=", resAccordian);
   return (
     <>
       <>
@@ -145,7 +146,8 @@ const RestaurantDetail = ({ RestaurantDetailInfo }) => {
     </div> */}
 
         <div>
-          <TopResAccordion recomendedList={recomendedList} />
+          {}
+          <TopResAccordion resAccordianList={resAccordian} />
         </div>
       </div>
     </>

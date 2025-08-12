@@ -12,6 +12,8 @@ const RestaurantContainer = () => {
     (store) => store?.restaurantDetail?.restaurantDetail[0]
   );
 
+  // console.log("ResInfo=", RestaurantDetailInfo);
+
   useEffect(() => {
     if (resId) {
       RestaurantDetailapiCall({ resId, dispatch });
