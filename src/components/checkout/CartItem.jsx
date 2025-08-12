@@ -47,10 +47,8 @@ const CartItem = ({ itemcard }) => {
           {itemcard?.map((item) => (
             <>
               <div className="flex justify-between px-2 py-2">
-                <div className="font-semibold">
-                  {item.card?.info?.name.slice(0, 20)}
-                </div>
-                <div className="flex border font-bold px-2 ">
+                <div className="font-semibold">{item?.name?.slice(0, 20)}</div>
+                <div className="flex border font-bold  ">
                   <p
                     className="text-green-500 px-2 hover:cursor-pointer"
                     onClick={() => dispatch(Decrement())}
@@ -67,9 +65,7 @@ const CartItem = ({ itemcard }) => {
                 </div>
                 <div className="">
                   <p className="text-sm font-bold">
-                    ₹
-                    {item?.card?.info?.price / 100 ||
-                      item?.card?.info?.defaultPrice / 100}
+                    ₹{item?.price / 100 || item?.defaultPrice / 100}
                   </p>
                 </div>
               </div>
@@ -95,8 +91,7 @@ const CartItem = ({ itemcard }) => {
           </div>
           ₹
           {itemcard.reduce((total, item) => {
-            const price =
-              item?.card?.info?.price || item?.card?.info?.defaultPrice;
+            const price = item?.price || item?.defaultPrice;
             return total + price;
           }, 0) / 100}
         </div>
