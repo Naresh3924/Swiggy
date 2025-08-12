@@ -11,6 +11,9 @@ const CartDetailPopUp = ({ itemCards }) => {
     (store) => store?.restaurantDetail?.restaurantDetail[0]
   );
   const { restaurantInfo } = RestaurantDetailInfo || {};
+
+  console.log("itemcard=", itemCards);
+
   return (
     <div>
       {itemCards?.length === 0 ? (
@@ -65,11 +68,9 @@ const CartDetailPopUp = ({ itemCards }) => {
                 key={item?.card?.info?.id}
                 className="flex justify-between py-1"
               >
-                <p className="font-bold my-2">{item?.card?.info?.name}</p>
+                <p className="font-bold my-2">{item?.name}</p>
                 <p className="font-bold text-slate-500 my-2 ">
-                  ₹
-                  {item?.card?.info?.price / 100 ||
-                    item?.card?.info?.defaultPrice / 100}
+                  ₹{item?.price / 100 || item?.defaultPrice / 100}
                 </p>
               </div>
             ))}
@@ -80,8 +81,7 @@ const CartDetailPopUp = ({ itemCards }) => {
             <p className="font-bold">
               ₹
               {itemCards.reduce((total, item) => {
-                const price =
-                  item?.card?.info?.price || item?.card?.info?.defaultPrice;
+                const price = item?.price || item?.defaultPrice;
                 return total + price;
               }, 0) / 100}
             </p>
