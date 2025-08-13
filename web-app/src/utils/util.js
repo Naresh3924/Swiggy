@@ -46,7 +46,11 @@ export const RestaurantapiCall = async ({ dispatch }) => {
  * @param {resId} id to pass to the rest details from restCard
  * @param { dispatch} dispatch-default function dispatch the response to store
  */
-export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
+export const RestaurantDetailapiCall = async ({
+  resId,
+  dispatch,
+  setrestaurantDeatilAPIResponse,
+}) => {
   try {
     dispatch(setIsLoading(true));
     const res = await axios.get(RESTAURANTDETAILS_URL(resId));
@@ -68,6 +72,7 @@ export const RestaurantDetailapiCall = async ({ resId, dispatch }) => {
         res?.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR,
     };
     dispatch(updateRestaurantDetail(payload));
+    setrestaurantDeatilAPIResponse(payload);
   } catch {
     console.log("API is not Callling...!");
   }
