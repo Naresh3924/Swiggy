@@ -1,17 +1,21 @@
-import { Alert, Button, ScrollView, StatusBar, StyleSheet, Text, TextInput, useColorScheme, View } from 'react-native';
-import { Colors } from 'react-native/Libraries/NewAppScreen';
-import { SafeAreaView, SafeAreaProvider } from 'react-native-safe-area-context';
-import { useState } from 'react';
-
+import {
+  Button,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  TextInput,
+  View,
+} from "react-native";
+import { SafeAreaView, SafeAreaProvider } from "react-native-safe-area-context";
+import { useState } from "react";
 
 export default function App() {
-  const [userName, setUserName] = useState('')
+  const [userName, setUserName] = useState("");
 
   const handleUserName = (e) => {
-    setUserName(e?.target?.value)
-  }
-  const handleLogin=()=>{
-  }
+    setUserName(e?.target?.value);
+  };
+  const handleLogin = () => {};
 
   return (
     <SafeAreaProvider>
@@ -19,15 +23,19 @@ export default function App() {
         <StatusBar />
         <ScrollView style={styles.container}>
           <View>
-            <TextInput style={styles.input} value={userName} placeholder='Username' onChange={handleUserName} />
-            <Button title='Login' onPress={handleLogin} />
+            <TextInput
+              style={styles.input}
+              value={userName}
+              placeholder="Username"
+              onChange={handleUserName}
+            />
+            <Button title="Login" onPress={handleLogin} />
           </View>
         </ScrollView>
       </SafeAreaView>
     </SafeAreaProvider>
   );
 }
-
 
 const styles = StyleSheet.create({
   container: {
@@ -36,11 +44,10 @@ const styles = StyleSheet.create({
   input: {
     borderWidth: 1,
     marginTop: 12,
-    marginBottom: 12
+    marginBottom: 12,
   },
   button: {
     marginTop: 12,
-    marginBottom: 12
-  }
-})
-
+    marginBottom: 12,
+  },
+});
