@@ -7,11 +7,14 @@ import {
   Text,
   TextInput,
   TouchableOpacity,
+  useWindowDimensions,
   View,
 } from "react-native";
 
 export default function Login() {
   const [phone, setPhone] = useState("");
+  const windowWidth = useWindowDimensions().width;
+  console.log(windowWidth);
   const handlePress = () => {
     Alert.alert("continue", phone, [
       {
@@ -26,7 +29,12 @@ export default function Login() {
   };
   return (
     <>
-      <View style={styles.loginContainer}>
+      <View
+        style={[
+          styles.loginContainer,
+          { width: windowWidth > 700 ? 1000 : "auto" },
+        ]}
+      >
         <ScrollView>
           <Image
             source={{
@@ -165,7 +173,7 @@ const styles = StyleSheet.create({
   },
   mobileInputBox: {
     backgroundColor: "#f5f5f5",
-    borderRadius: 6,
+    borderRadius: 2,
     borderWidth: 1,
     borderColor: "#d3d3d3",
     paddingVertical: 12,
@@ -173,13 +181,13 @@ const styles = StyleSheet.create({
     fontSize: 24,
   },
   continueBtn: {
-    backgroundColor: "#ff8c00",
-    padding: 10,
-    borderRadius: 5,
+    backgroundColor: "#ff7f50",
+    padding: 6,
+    borderRadius: 2,
   },
   continueBtnText: {
     color: "white",
-    fontSize: 24,
+    fontSize: 16,
     textAlign: "center",
   },
   wrapper: {
