@@ -34,6 +34,9 @@ export const RestaurantapiCall = async ({ dispatch }) => {
         res?.data?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle
           ?.restaurants,
       restaurantInfoHeader: res?.data?.data?.cards[2]?.card?.card,
+      bestPlaceInfo: res?.data?.data?.cards[6]?.card?.card,
+      bestCuisines: res?.data?.data?.cards[7]?.card?.card,
+      bestRestaurantNear: res?.data?.data?.cards[8]?.card?.card,
     };
     dispatch(updateRestaurant(updatePayload));
   } catch {
@@ -70,7 +73,15 @@ export const RestaurantDetailapiCall = async ({
           ?.cards[1]?.card?.card.carousel,
       resAccordian:
         res?.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR,
+      footerInfo:
+        res?.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR
+          ?.cards[19] ||
+        res?.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR
+          ?.cards[18] ||
+        res?.data?.data?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR
+          ?.cards[17],
     };
+    console.log("resssss", res);
     dispatch(updateRestaurantDetail(payload));
     setrestaurantDeatilAPIResponse(payload);
   } catch {
@@ -94,6 +105,10 @@ export const CollectionDetailapiCall = async ({ dispatch }) => {
   }
 };
 
+/**
+ * CartcheckoutDetails API CALL
+ * @param {dispatch} dispatch - function to dispatch the  cart details
+ *  */
 export const cartCheckoutDetail = async ({ dispatch }) => {
   try {
     const res = await axios.get("https://www.swiggy.com/dapi/cart");

@@ -11,7 +11,10 @@ import { Link } from "react-router-dom";
 import { togglesigninbar } from "../../redux/slice/userSlice";
 import { togglesidebar } from "../../redux/slice/sidebarSlice";
 import { LOGO_URL } from "../../utils/constant";
-import { updateToggleCart } from "../../redux/slice/restaurantSlice";
+import {
+  updateHeader,
+  updateToggleCart,
+} from "../../redux/slice/restaurantSlice";
 import CartDetailPopUp from "../cart/CartDetailPopUp";
 
 const Header = () => {
@@ -22,7 +25,6 @@ const Header = () => {
   const istoggleCartDetails = useSelector(
     (store) => store?.cart?.istoggleCartDetails
   );
-  console.log("istoggleCartDetails", istoggleCartDetails);
 
   const handleMouseOver = () => {
     dispatch(updateToggleCart(true));
@@ -77,7 +79,11 @@ const Header = () => {
               data-testid="cartDetails"
               className="flex"
               onMouseEnter={debounce(handleMouseOver, 300)}
-              onClick={() => dispatch(updateToggleCart(false))}
+              onClick={() => {
+                dispatch(updateToggleCart(false));
+                dispatch(updateHeader(true));
+              }}
+              // onClick={() => dispatch(updateHeader(true))}
             >
               <p className="bg-green-500 text-white px-2 mx-2 rounded-t-lg">
                 {itemCards.length}

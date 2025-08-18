@@ -32,15 +32,24 @@ const restaurantDetailSlice = createSlice({
   name: "RestaurantDetail",
   initialState: {
     restaurantDetail: [],
+    header: false,
+    footer: false,
   },
   reducers: {
     updateRestaurantDetail: (state, action) => {
       state.restaurantDetail.push(action.payload);
     },
+    updateHeader: (state, action) => {
+      state.header = action.payload;
+    },
+    updateFooter: (state, action) => {
+      state.footer = action.payload;
+    },
   },
 });
 
-export const { updateRestaurantDetail } = restaurantDetailSlice.actions;
+export const { updateRestaurantDetail, updateHeader, updateFooter } =
+  restaurantDetailSlice.actions;
 export const restaurantDeatilReducer = restaurantDetailSlice.reducer;
 
 const CollectionDetailSlice = createSlice({

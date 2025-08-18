@@ -12,8 +12,6 @@ const CartDetailPopUp = ({ itemCards }) => {
   );
   const { restaurantInfo } = RestaurantDetailInfo || {};
 
-  console.log("itemcard=", itemCards);
-
   return (
     <div>
       {itemCards?.length === 0 ? (

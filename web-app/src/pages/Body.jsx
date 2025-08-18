@@ -6,6 +6,10 @@ import RestaurantContainer from "../components/restaurant/RestaurantContainer";
 import { useDispatch, useSelector } from "react-redux";
 import { RestaurantapiCall } from "../utils/util";
 import Shimmer from "../components/shimmer";
+import { updateFooter, updateHeader } from "../redux/slice/restaurantSlice";
+import BestPlaceContainer from "../components/bestCard/bestPlace";
+import BestCuisinesContainer from "../components/bestCard/bestCuisines";
+import BestRestaurantContainer from "../components/bestCard/bestRestaurant";
 
 const Body = () => {
   const dispatch = useDispatch();
@@ -14,6 +18,8 @@ const Body = () => {
 
   useEffect(() => {
     RestaurantapiCall({ dispatch });
+    dispatch(updateHeader(false));
+    dispatch(updateFooter(false));
   }, []);
 
   return (
@@ -27,6 +33,9 @@ const Body = () => {
         <Collection restaurant={restaurant} />
         <TopRestaurant restaurant={restaurant} />
         <RestaurantContainer restaurant={restaurant} />
+        <BestPlaceContainer restaurant={restaurant} />
+        <BestCuisinesContainer restaurant={restaurant} />
+        <BestRestaurantContainer restaurant={restaurant} />
       </div>
     </Fragment>
   );
