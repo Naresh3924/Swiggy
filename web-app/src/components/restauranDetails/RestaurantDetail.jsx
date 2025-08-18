@@ -27,7 +27,6 @@ const RestaurantDetail = ({ RestaurantDetailInfo }) => {
     setsearchupdate(json);
   };
 
-  // console.log("acc=", resAccordian);
   return (
     <>
       <>

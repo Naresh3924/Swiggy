@@ -1,7 +1,9 @@
 import React, { Fragment, Suspense, useEffect } from "react";
 import "./App.css";
-import { createBrowserRouter, Outlet } from "react-router-dom";
+import { createBrowserRouter, Outlet, useLocation } from "react-router-dom";
 import CheckOut from "./components/checkout/CheckOut";
+import UpdatedHeader from "./components/header/UpdatedHeader";
+import { useSelector } from "react-redux";
 
 const Header = React.lazy(() => import("./components/header/Header"));
 const Body = React.lazy(() => import("./pages/Body"));
@@ -16,7 +18,6 @@ const RestaurantContainer = React.lazy(() =>
 const CollectionDetail = React.lazy(() =>
   import("./components/collection/CollectionDetail")
 );
-// const Cart = React.lazy(() => import("./components/cart/Cart"));
 
 const App = () => {
   useEffect(() => {
@@ -26,11 +27,17 @@ const App = () => {
       .catch((error) => console.log("sorry smoething went wrong", error));
   }, []);
 
+  const updatedheader = useSelector((store) => store?.restaurantDetail?.header);
+
+  const location = useLocation();
+
+  const isCheckoutPage = location.pathname === "/checkout";
+
   return (
     <Fragment>
-      <Header />
+      {isCheckoutPage ? <UpdatedHeader /> : <Header />}
       <Outlet />
-      <Footer />
+      {!updatedheader ? <Footer /> : ""}
     </Fragment>
   );
 };

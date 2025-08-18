@@ -17,7 +17,7 @@ const Emptycart = () => {
           You can go to home page to view more restaurants
         </p>
 
-        <Link to="/restaurantdetail/:resId" data-testid="restaurantMenu">
+        <Link to="/" data-testid="restaurantMenu">
           <button className=" border border-orange-600 bg-orange-600 font-bold text-white w-80 h-12 mx-4">
             SEE RESTAURANT NEAR YOU
           </button>
