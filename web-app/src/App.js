@@ -33,11 +33,14 @@ const App = () => {
 
   const isCheckoutPage = location.pathname === "/checkout";
 
+  const iscollectiondetail =
+    location.pathname === "/collectiondetail/:collectionId";
+
   return (
     <Fragment>
       {isCheckoutPage ? <UpdatedHeader /> : <Header />}
       <Outlet />
-      {!updatedheader ? <Footer /> : ""}
+      {!updatedheader && iscollectiondetail ? <Footer /> : ""}
     </Fragment>
   );
 };
@@ -69,7 +72,7 @@ export const AppRouter = createBrowserRouter([
         ),
       },
       {
-        path: "/collectiondetail/:resId",
+        path: "/collectiondetail/:collectionId",
         element: (
           <Suspense fallback={<div></div>}>
             <CollectionDetail />

@@ -94,10 +94,12 @@ export const RestaurantDetailapiCall = async ({
  * @param {id} id to pass to the rest details from restCard
  * @param { dispatch} dispatch-default function dispatch the response to store
  */
-export const CollectionDetailapiCall = async ({ dispatch }) => {
+export const CollectionDetailapiCall = async ({ resId, dispatch }) => {
   try {
     dispatch(setIsLoading(true));
     const res = await axios.get(COLLECTION_DETAILS_URL);
+    console.log("collectiondetail", res);
+    console.log("resId", resId);
     dispatch(setIsLoading(false));
     dispatch(updateCollectionDetail(res?.data));
   } catch {
