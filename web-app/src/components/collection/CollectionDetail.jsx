@@ -1,44 +1,37 @@
-import React from "react";
-import { useEffect } from "react";
-import { useDispatch } from "react-redux";
-import { CollectionDetailapiCall } from "../../utils/util";
+import React, { useEffect, useState } from "react";
+import CollectionMenu from "./CollectionMenu";
 import { useParams } from "react-router-dom";
 
 const CollectionDetail = () => {
-  const dispatch = useDispatch();
-  const { resId } = useParams;
+  const [collectionMenuInfo, setCollectionMenuInfo] = useState([]);
+  const { collectionId } = useParams();
 
   useEffect(() => {
-    CollectionDetailapiCall({ resId, dispatch });
-  }, [resId]);
+    const fetchCollection = async () => {
+      try {
+        const data = await fetch(
+          `https://www.swiggy.com/dapi/restaurants/list/v5?lat=13.08950&lng=80.27390&collection=${collectionId}&tags=layout_BAU_Contextual%2Cpongal&sortBy=&filters=&type=rcv2&offset=0&page_type=null`
+        );
+        const json = await data.json();
+        console.log("API Response:", json);
+        setCollectionMenuInfo(json);
+      } catch (error) {
+        console.error("Error fetching collection details:", error);
+      }
+    };
+
+    if (collectionId) {
+      fetchCollection();
+    }
+  }, [collectionId]);
 
   return (
-    <div className="flex overflow-hidden py-12 px-24">
-      <div className="w-3/3 py-4 px-2 my-8 mx-auto">
-        <h1 className="text-3xl font-bold">title</h1>
-        <p className="">description</p>
-        <select className="my-4 rounded-full border shadow text-center py-2 bg-slate-50">
-          <option className="">Sort By</option>
-          {/* {collectionSortedBY.map((sortedBY) => (
-            <option
-              className="shadow-lg rounded-full p-2 bg-slate-50"
-              key={sortedBY.key}
-            >
-              {sortedBY.title}
-            </option>
-          ))} */}
-        </select>
-        <div className="flex flex-wrap justify-between mx-2">
-          {/* {collectioncardinfo?.map((card) => (
-            <div className="">
-              <RestaurantCard
-                key={card.card?.card?.info?.id}
-                resInfo={card.card.card}
-              />
-            </div>
-          ))} */}
-        </div>
-      </div>
+    <div className="py-24 px-24">
+      {collectionMenuInfo ? (
+        <CollectionMenu collectionInfo={collectionMenuInfo} />
+      ) : (
+        <p>Loading collection details...</p>
+      )}
     </div>
   );
 };
