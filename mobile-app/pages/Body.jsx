@@ -13,11 +13,7 @@ const Body = () => {
   return (
     <ScrollView style={styles.bodyContainer}>
       <View>
-        <FlatList
-          data={products}
-          renderItem={({ item }) => <ProductCard products={item} />}
-          keyExtractor={(item) => item.id}
-        />
+       <ProductCard products={products}/>
       </View>
     </ScrollView>
   );
